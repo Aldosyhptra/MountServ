@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MountServ</title>
+    <link rel="stylesheet" href="/static/css/login.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="static/js/jquery.js"></script>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="gambar">
+        <img src="{{ url_for('static', filename='img/loginregister/1.png') }}" id="gambar" alt="" />
+        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/icon/logo.png') }}" id="logo" alt="" /></a>
+        <h3>Penyedia <br>
+          Layanan <br>
+          Jasa <br>
+          Pendakian</h3>
+      </div>
+      <form action="{{ url_for('register') }}" method="post" id='register-from'>
+        <div class="containerform">
+          <div class="mb-4">
+            <h4>Daftar</h4>
+          </div>
+          {% if msg %}
+          <p style="color: red;">{{ msg }}</p>
+          {% endif %}
+          <div class="inputlogin mb-3">
+            <input type="text" name="nama" placeholder="Nama Lengkap" id="nama" required/>
+          </div>
+          <div class="inputlogin mb-3">
+            <input type="number" name="nohp" placeholder="No HP" id="nohp" required/>
+          </div>
+          <div class="inputlogin mb-3">
+            <input type="email" name="email" placeholder="Email" id="Email" required />
+          </div>
+          <div class="inputlogin mb-3">
+            <div class="password">
+              <input type="password" name="password" placeholder="Password" id="password" required oninput="validasipassword()"/>
+              <div class="show-hide" onclick="actionshowhide1()">
+                <img src="{{ url_for('static', filename='img/icon/hide.svg') }}" alt="" id="show-password1"/>
+              </div>
+              <div class="text-left text-danger" id="msgpassword"></div>
+            </div>
+          <div class="inputlogin mb-3">
+            <div class="password">
+              <input type="password" name="confirmpassword" placeholder="Confirm Password" id="confirmpassword" required oninput="checkconfirmpassword()" />
+              <div class="show-hide" onclick="actionshowhide2()">
+                <img src="{{ url_for('static', filename='img/icon/hide.svg') }}" alt="" id="show-password2"/>
+              </div>
+              <div class="text-left text-danger" id="msgconfirmpassword"></div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mb-3" id="submitbutton" >Daftar</button> <br/>
+            <div class="masukdaftar">
+              <p class="text-center">Jika anda telah memiliki akun <a href="{{ url_for('login') }}">Masuk Disini</a></p>
+            </div>
+          </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+    function actionshowhide1() {
+        var password = document.getElementById("password");
+        var img = document.getElementById("show-password1");
+  
+        if (password.type=='text') {
+            password.type = "password";
+            img.src = '/static/img/icon/hide.svg';
+        } else {
+            password.type = "text";
+            img.src = '/static/img/icon/show.svg';
+        }
+    }
+    function actionshowhide2() {
+        var confirmpassword = document.getElementById("confirmpassword");
+        var img = document.getElementById("show-password2");
+
+        if (confirmpassword.type=='text') {
+            confirmpassword.type = "password";
+            img.src = '/static/img/icon/hide.svg';
+        } else {
+            confirmpassword.type = "text";
+            img.src = '/static/img/icon/show.svg';
+        }
+    }
+    function validasipassword(){
+      var password = document.getElementById('password').value;
+      var msgpassword = document.getElementById('msgpassword');
+      var buttonsubmit = document.getElementById('submitbutton');
+
+      if (password.length < 8 && !/[A-Z]/.test(password)) {
+        msgpassword.innerHTML = "Password harus memiliki minimal 8 karakter <br> Password harus memiliki minimal satu huruf besar";
+        buttonsubmit.disabled = true;
+    }
+      else if (password.length < 8) {
+        msgpassword.innerHTML = "Password harus memiliki minimal 8 karakter";
+        buttonsubmit.disabled = true;
+    }
+      else if (!/[A-Z]/.test(password)) {
+        msgpassword.innerHTML = "Password harus memiliki minimal satu huruf besar";
+        buttonsubmit.disabled = true;
+    }
+    else{
+      msgpassword.innerHTML = "";
+      buttonsubmit.disabled = false;
+    }
+      }
+    function checkconfirmpassword(){
+      var password = document.getElementById('password').value;
+      var confirmpassword = document.getElementById('confirmpassword').value;
+      var msgconfirmpassword = document.getElementById('msgconfirmpassword');
+      var buttonsubmit = document.getElementById('submitbutton');
+
+      if (password != confirmpassword) {
+        msgconfirmpassword.innerHTML = "Password Tidak Sama!";
+        buttonsubmit.disabled = true;
+      }else{
+        msgconfirmpassword.innerHTML = "";
+        buttonsubmit.disabled = false;
+    }
+  }
+      
+  </script>

@@ -1,0 +1,237 @@
+@font-face {
+    font-family:PlusJakarta-Regular ;
+    src: url(/static/font/PlusJakartaSans-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body h2{
+        font-family: PlusJakarta-Regular;
+        font-size: 38px;
+        text-transform: capitalize;
+        font-weight: bold;
+}
+body h3{
+        font-family: PlusJakarta-Regular;
+        font-size: 22px;
+        text-transform: capitalize;
+        font-weight: bold;
+}
+body h4{
+    font-family: PlusJakarta-Regular;
+    font-size: 20px;
+    word-spacing: 4px;
+}
+body h5{
+    font-family: PlusJakarta-Regular;
+    font-size: 18px;
+    font-weight: 550;
+}
+body h6{
+    font-family: PlusJakarta-Regular;
+    font-size: 16px;
+    font-weight: 550;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-left: -80px;
+}
+.nav-item li{
+    margin: 0px 15px;
+    font-family: PlusJakarta-Regular;
+}
+.nav-item li a{
+    text-decoration: none;
+    color: #5f5f5f;
+    transition: 0.3s ease-in-out;
+}
+.nav-item li a:hover{
+    color: black;
+}
+#loginbutton{
+    width: 90px;
+    height: 35px;
+    font-family: PlusJakarta-Regular;
+    font-weight: 500    ;
+    background-color: #1877F2;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    filter: drop-shadow(0.5px 4px 2px #0000003b );
+}
+.navbarprofil_content{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0px;
+}
+.descnavbar, #descnavbar{
+    position: relative;
+    display: flex;
+    margin: 10px 0px;
+}
+.descnavbar button, #descnavbar button{
+    position: relative;
+    text-align: start;
+    width: 240px;
+    height: 42px;
+    background-color: #E9C842;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
+.descnavbar a, #descnavbar a{
+    font-family: PlusJakarta-Regular;
+    color: #777E90;
+    font-size: 16px;
+    text-decoration: none;
+}
+.descnavbar img, #descnavbar img{
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    width: 24px;
+    height: 24px;
+}
+.descnavbar ion-icon, #descnavbar ion-icon{
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    width: 24px;
+    height: 24px;
+    color: #777E90;
+}
+.status1, .status2, .status3{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #c3c3c3;
+    border: 1px solid #000000;
+}
+.status1{
+    margin-left: 100px;
+}
+.status2{
+    margin-left: 53px;
+}   
+#garis{
+    width: 300px;
+    height: 2px;
+    margin-top: 10px;
+    background-color: #000000;
+}
+.form-content{
+    display: flex;
+    justify-content: space-between;
+}
+.pesanan-content{
+    width: 874px;
+    height: auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #DEE5ED;
+    box-shadow: #000000a7 0px 0px 10px;
+}
+.deskripsi img{
+    width: 75px;
+    height: 75px;
+    background-color: #1877F2;
+    border-radius: 20px;
+}
+.deskripsi h6{
+    color: #5f5f5f;
+}
+#pesansekilas, #pesanrincian{
+    background-color: #fff;
+    border: 1px solid #000000;
+    border-radius: 20px;
+}
+.button{
+    font-family: PlusJakarta-Regular;
+}
+.button button{
+    margin: 0px 15px;
+}
+#alasanpembatalan{
+    width: 300px;
+    height: 35px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 5px;
+}
+#bayar{
+    width: 165px;
+    height: 40px;
+    background-color: #1877F2;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+}
+#detail, #batal{
+    width: 165px;
+    height: 40px;
+    border: 1px solid #1877F2;
+    background-color: #fff;
+    color: #1877F2;
+    border-radius: 15px;
+}
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating label {
+    font-size: 2em;
+    color: #ddd;
+    cursor: pointer;
+}
+.star-rating input:checked ~ label {
+    color: #f5b301;
+}
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #f5b301;
+}
+
+.star-ratingtampil {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.star-ratingtampil .star {
+    font-size: 24px;
+    color: #ccc; 
+}
+
+.star-ratingtampil .star.active {
+    color: #ffcc00; 
+}
+.footer-contact img{
+    width: 40px;
+    height: 40px;
+    margin: 0px 5px;
+}
+.footer-contact li{
+    list-style: none;
+}
+.judulfooter{
+    padding: 50px;
+}
+footer{
+    margin-top: 116px;
+    background-color: #2F3538;
+}
+footer h2, footer h6{
+    color: #fff;
+}

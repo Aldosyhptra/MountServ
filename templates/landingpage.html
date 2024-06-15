@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/landingpage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="static/js/jquery.js"></script>
+</head>
+<body>
+    <!--navbar-->
+    <nav>
+        <div class="navbar d-flex justify-content-around">
+            <div class="logo">
+                <h1><a href="{{ url_for('index') }}"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+            </div>
+            <div class="nav-item">
+                <ul>
+                    <li><a href="{{ url_for('index') }}" style="color: black;">Beranda</a></li>
+                    <li><a href="{{ url_for('tentangkami') }}">Tentang Kami</a></li>
+                    <li><a href="{{ url_for('mountain') }}">Gunung</a></li>
+                    <li><a href="{{ url_for('cuaca') }}">Cuaca</a></li>
+                    <li><a href="{{ url_for('kontak') }}">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="login">
+                <a href="{{ url_for('login') }}"><button type="submit" class="{{buttonlogin}}" id="loginbutton">Masuk</button></a>
+                 <div class="dropdown">
+                    <a class="btn" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none;">
+                        <img class="{{buttonuser}}" src="/static/uploads/profil/{{gambarprofil}}" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                    </a>     
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--navbar-->
+
+    <div class="main mx-5">
+        <!--wujudkan-->
+        <div class="desclandingpage my-5 d-flex justify-content-between align-items-center mx-4">
+            <div class="deskripsilandingpage me-2">
+                <h6>Puncak Bukan Tujuan, Perjalanan Adalah Kisah</h6>
+                <h2 class="text-uppercase">Mari Wujudkan Bersama Mountserv</h2>
+                <h5 class="my-3" style="line-height:30px ;">Dari pemula hingga pendaki berpengalaman, kami siap membantu mewujudkan 
+                    impian anda mencapai puncak. Layanan porter yang membantu membawa beban,
+                    tour guide yang siap memandu, dan alat pendakian yang terjamin mutunya.</h5>
+                    <div class="pesandanlihat mt-4 d-flex">
+                        <a href="{{ url_for('mountain') }}"><button type="submit" class="buttonpesan" id="pesanbutton">Pesan Sekarang</button></a>
+                        <a href="" class="ms-5 mt-2">Baca Lebih Lanjut</a>         
+                    </div>
+            </div>
+            <div class="fotodesclandingpage">
+                <div id="carouselfotolanding" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <div class="carouselbutton">
+                            <button type="button" id="carouselfotolandingbutton" data-bs-target="#carouselfotolanding" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" id="carouselfotolandingbutton" data-bs-target="#carouselfotolanding" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" id="carouselfotolandingbutton" data-bs-target="#carouselfotolanding" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div> 
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="{{ url_for('static', filename='img/landingpage/carousel/1.png') }}" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='img/landingpage/carousel/2.jpg') }}" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='img/landingpage/carousel/3.jpg') }}"alt="...">
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <!--wujudkan-->
+
+        <!--populer-->
+        <div class="gunungpopuler">
+            <div class="judulgunungpopuler d-flex justify-content-between my-3">
+                <h3 class="fw-bold">Gunung Populer</h4>
+                <h6><a href="{{ url_for('mountain') }}">Lihat Semua</a></h6>
+            </div>
+            <div class="gunungpopuler-content d-flex justify-content-between">
+                <div class="fotodandescgunungpopuler text-center">
+                    <div class="fotogunungpopuler1 my-3">
+                        <img src="{{ url_for('static', filename='img/landingpage/2.png') }}" alt=""/>
+                    </div>
+                    <h5>Sumbing</h5>
+                </div>
+                <div class="fotodandescgunungpopuler text-center">
+                    <div class="fotogunungpopuler2 my-3">
+                        <img src="{{ url_for('static', filename='img/landingpage/3.png') }}" alt=""/>
+                    </div>
+                    <h5>Sindoro</h5>
+                </div>
+                <div class="fotodandescgunungpopuler text-center">
+                    <div class="fotogunungpopuler3 my-3">
+                        <img src="{{ url_for('static', filename='img/landingpage/4.png') }}" alt=""/>
+                    </div>
+                    <h5>Prau</h5>
+                </div>
+                <div class="fotodandescgunungpopuler text-center">
+                    <div class="fotogunungpopuler4 my-3">
+                        <img src="{{ url_for('static', filename='img/landingpage/5.png') }}" alt=""/>
+                    </div>
+                    <h5>Slamet</h5>
+                </div>
+                <div class="fotodandescgunungpopuler text-center">
+                    <div class="fotogunungpopuler5 my-3">
+                        <img src="{{ url_for('static', filename='img/landingpage/6.png') }}" alt=""/>
+                    </div>
+                    <h5>Merbabu</h5>
+                </div>
+            </div>
+        </div>
+        <!--populer-->
+
+        <!--pelayanan pendakian-->
+        <div class="pelayananpendakian">
+            <div class="judulpelayananpendakian text-center mb-4">
+                <h2>Pelayanan Jasa Pendakian</h2>
+                <h6>Kami menyediakan porter berpengalaman, tour guide <br> profesional dan berbagai macam alat pendaki yang berkualitas</h6>
+            </div>
+            <div class="pelayananpendakian-content d-flex justify-content-center">
+                <div class="fotodandescjasa1 mx-3">
+                    <img src="{{ url_for('static', filename='img/landingpage/7.png') }}" alt=""/>
+                    <div class="descjasa">
+                        <h4>Porter</h4>
+                        <a href="{{ url_for('mountain') }}"><button type="submit" class="buttonpesanjasa mr-5" id="pesanbutton">Pesan Sekarang</button></a>
+                    </div>
+                </div>
+                <div class="fotodandescjasa2 mx-3">
+                    <img src="{{ url_for('static', filename='img/landingpage/8.png') }}" alt=""/>
+                    <div class="descjasa">
+                        <h4>Tour Guide</h4>
+                        <a href="{{ url_for('mountain') }}"><button type="submit" class="buttonpesanjasa mr-5" id="pesanbutton">Pesan Sekarang</button></a>
+                    </div>
+                </div>
+                <div class="fotodandescjasa3 mx-3">
+                    <img src="{{ url_for('static', filename='img/landingpage/9.png') }}" alt=""/>
+                    <div class="descjasa">
+                        <h4>Penyewaan<br>Alat Pendaki</h4>
+                        <a href="{{ url_for('mountain') }}"><button type="submit" class="buttonpesanjasa mr-5" id="pesanbutton">Pesan Sekarang</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--pelayanan pendakian-->
+
+        <!--mengapa-->
+        <div class="mengapamountserv">
+            <div class="judulmengapamountserv text-center mb-5">
+                <h2>Mengapa Memilih Mountserv?</h2>
+                <h6>Kami memiliki tim berpengalaman dan profesional, membantu banyak pendaki <br> mencapai puncak dengan aman dan tentunya dengan harga yang terjangkau</h6>
+            </div>
+            <div class="mengapamount-content d-flex justify-content-center">
+                <div class="icondandescmengapa text-center">
+                    <img class="mt-3" src="{{ url_for('static', filename='img/landingpage/lokasi.png') }}" alt=""/>
+                    <h5>Pilih Lokasi</h5>
+                    <h6>Temukan gunung mana yang <br> anda ingin jelajahi</h6>
+                </div>
+                <div class="icondandescmengapa">
+                    <img src="{{ url_for('static', filename='img/landingpage/garis.png') }}" alt=""/>
+                </div>
+                <div class="icondandescmengapa text-center">
+                    <img src="{{ url_for('static', filename='img/landingpage/kalender.png') }}" alt=""/>
+                    <h5>Pilih Tanggal</h5>
+                    <h6>Tentukan tanggal keberangkatan anda</h6>
+                </div>
+                <div class="icondandescmengapa">
+                    <img src="{{ url_for('static', filename='img/landingpage/garis.png') }}" alt=""/>
+                </div>
+                <div class="icondandescmengapa text-center">
+                    <img class="mt-2"  src="{{ url_for('static', filename='img/landingpage/pesan.png') }}" alt=""/>
+                    <h5>Pesan Jasa</h5>
+                    <h6>Pesan jasa mana yang anda <br> pilih</h6>
+                </div>
+            </div> 
+        </div>
+        <!--mengapa-->
+        <!--testimoni-->
+        <div class="testimoni">
+            <div class="judultestimoni text-center mb-5">
+                <h2>Dipercaya Oleh Ribuan Pelanggan </h2>
+                <h6>Kami selalu berusaha memberikan pelayanan terbaik kepada pelanggan </h6>
+            </div>
+            <div class="testimoni-content d-flex justify-content-around">
+                <div class="testimoni-card">
+                    <div class="nama-rating">
+                        <h5>Viezh Robert</h5>
+                        <h5>5.0</h5>
+                    </div>
+                    <div class="desctestimoni">
+                        <h6>“Pengalaman pendakian yang luar biasa! porternya kuat sigap, tour guidenya informatif dan ramah, alat lengkap dan terawat. Saya sangat merekomendasikan!”</h6>
+                    </div>
+                </div>
+                <div class="testimoni-card">
+                    <div class="nama-rating">
+                        <h5>Viezh Robert</h5>
+                        <h5>5.0</h5>
+                    </div>
+                    <div class="desctestimoni">
+                        <h6>“Pengalaman pendakian yang luar biasa! porternya kuat sigap, tour guidenya informatif dan ramah, alat lengkap dan terawat. Saya sangat merekomendasikan!”</h6>
+                    </div>
+                </div>
+                <div class="testimoni-card">
+                    <div class="nama-rating">
+                        <h5>Viezh Robert</h5>
+                        <h5>5.0</h5>
+                    </div>
+                    <div class="desctestimoni">
+                        <h6>“Pengalaman pendakian yang luar biasa! porternya kuat sigap, tour guidenya informatif dan ramah, alat lengkap dan terawat. Saya sangat merekomendasikan!”</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--testimoni-->
+    </div>
+    <!--footer-->
+    <footer>
+        <div class="container">
+            <div class="judulfooter text-center">
+                <h2 class="my-2">MountServ Siap Membantumu</h2>
+                <h6 class="my-5">Halo, kami MountServ berusaha untuk membantu anda dalam kegiatan pendakian anda.</h6>
+            </div>
+            <div class="footer-content d-flex justify-content-between align-items-center py-3">
+                <h1><a href="#"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+                <h6>© 2024 MountServ All Rights Reserved. </h6>
+                <div class="footer-contact d-flex ">
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/whatsapp.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/instagram.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/facebook.png') }}" alt=""/></a></li>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>

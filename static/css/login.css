@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family:PlusJakarta-Regular ;
+    src: url(/static/font/PlusJakartaSans-Regular.ttf);
+}
+
+.hero{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.gambar{
+    position: relative;
+}
+
+#gambar{
+    width: 515px;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 0;
+}
+#logo{
+    position: absolute;
+    top: 3%;
+    left: 10%;
+    width: 152px;
+    height: auto;
+
+}
+.hero h3{
+    text-align: start;
+    position: absolute;
+    top: 15%;
+    left: 12%;
+    font-family:PlusJakarta-Regular ;
+    font-size: 40px;
+    font-weight:bolder;
+
+}
+.hero h4{
+    text-align: start;
+    font-family:PlusJakarta-Regular ;
+    font-size: 30px;
+}
+.hero h6{
+    text-align: start;
+    font-family:PlusJakarta-Regular ;
+    font-size: 14px;
+    color: #616161;
+}
+.hero p{
+    font-family:PlusJakarta-Regular ;
+    font-size: 16px;
+}
+.hero form{
+    display: flex;
+    width: 450px;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+}
+.hero .password{
+    position: relative;
+    
+}
+.hero .password .show-hide{
+    position: absolute;
+    right: 14px;
+    top: 17px;
+}
+.hero .show-hide img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.inputlogin{
+    margin: 30px 0px;
+}
+.inputlogin input[type='text'],.inputlogin input[type='email'],.inputlogin input[type='number'],.inputlogin input[type='password']{
+    width: 369px;
+    height: 62px;
+    padding: 10px;
+    background-color: #F0EFFF;
+    border: 0px;
+    outline: none;
+    border-radius: 8px;
+    text-align: start;
+}
+.inputlogin input::placeholder{
+    color: #8f8bd3;
+}
+.inputlogin .checkbox input{
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.inputlogin .checkbox h6{
+    margin-top: 5px;
+}
+.inputlogin a{
+    font-family:PlusJakarta-Regular ;
+    font-size: 14px;
+    color: #b0b0b0;
+    text-decoration: underline;
+}
+#buttonmasuk, #submitbutton{
+    width: 369px;
+    height: 62px;
+    border: 0px;
+    border-radius: 8px;
+    margin: 10px 0px;
+    box-shadow: 0px 0px 20px #1876f27a ;
+}
+.masukdaftar p{
+    font-family:PlusJakarta-Regular ;
+    font-size: 16px;
+}
+.masukdaftar a{
+    font-family:PlusJakarta-Regular ;
+    font-size: 16px;
+    color: #1877F2;
+    text-decoration: none;
+}

@@ -1,0 +1,188 @@
+@font-face {
+    font-family: PlusJakarta-Regular;
+    src: url(/static/font/PlusJakartaSans-Regular.ttf);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body h2 {
+    font-family: PlusJakarta-Regular;
+    font-size: 38px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h3 {
+    font-family: PlusJakarta-Regular;
+    font-size: 22px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h4 {
+    font-family: PlusJakarta-Regular;
+    font-size: 20px;
+    word-spacing: 4px;
+  }
+  body h5 {
+    font-family: PlusJakarta-Regular;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  body h6 {
+    font-family: PlusJakarta-Regular;
+    font-size: 16px;
+    font-weight:600;
+  }
+
+#active{
+    width: 244px;
+    height: 42px;
+    background-color: #E9C842;
+    border-radius: 10px;
+    transform: scale(1.05);
+    box-shadow: 0px 3px 3px #000000ad;
+}
+
+#sidenavbar{
+    box-shadow: 1px 0px 5px #00000045;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+}
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+.text-black {
+    color: black;
+}
+.profil{
+  display: flex;
+  align-items:  center;
+}
+.profil img{
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.content {
+  flex-grow: 1;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+
+.status1, .status2, .status3{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #c3c3c3;
+  border: 1px solid #000000;
+}
+.status1{
+  margin-left: 100px;
+}
+.status2{
+  margin-left: 53px;
+}   
+#garis{
+  width: 300px;
+  height: 0.5px;
+  margin-top: 10px;
+  background-color: #000000;
+}
+.form-content{
+  display: flex;
+  justify-content: space-between;
+}
+.pesanan-content{
+  width: 874px;
+  height: auto;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #DEE5ED;
+  box-shadow: #000000a7 0px 0px 10px;
+}
+.statuspesanan{
+  padding: 20px;
+}
+.statuspesanan select{
+  width: 200px;
+  height: 45px;
+  padding: 5px;
+  border-radius: 20px;
+  border: 1px solid #1877F2;
+  font-family: PlusJakarta-Regular;
+  font-weight: 400;
+  color: #1877F2;
+}
+.statuspesanan select:focus{
+  outline: none;
+}
+
+.buttonlogout{
+    position: absolute;
+    bottom: 5%;
+}
+
+.headerpesanan{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-bottom:1px solid #000000;
+}
+.deskripsi img{
+  width: 75px;
+  height: 75px;
+  background-color: #1877F2;
+  border-radius: 20px;
+}
+.deskripsi h6{
+  color: #5f5f5f;
+}
+#pesansekilas, #pesanrincian{
+  background-color: #fff;
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+.button{
+  font-family: PlusJakarta-Regular;
+}
+.button button{
+  margin: 0px 15px;
+}
+#bayar{
+  width: 220px;
+  height: 40px;
+  background-color: #1877F2;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+}
+#logout{
+    width: 224px;
+    height: 43px;
+    background-color: #00000000;
+    border: 1px solid #000;
+    border-radius: 8px;
+    box-shadow: 0px 1px 3px #00000049;
+}
+
+.star-ratingtampil {
+  display: inline-block;
+}
+
+.star-ratingtampil .star {
+  font-size: 24px;
+  color: #ccc; 
+}
+
+.star-ratingtampil .star.active {
+  color: #ffcc00; 
+}

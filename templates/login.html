@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MountServ</title>
+    <link rel="stylesheet" href="/static/css/login.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="static/js/jquery.js"></script>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="gambar">
+        <img src="{{ url_for('static', filename='img/loginregister/1.png') }}" id="gambar" alt="" />
+        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/icon/logo.png') }}" id="logo" alt="" /></a>
+        <h3>Penyedia <br>
+          Layanan <br>
+          Jasa <br>
+          Pendakian</h3>
+      </div>
+      <form action="{{ url_for('login') }}" method="post">
+        <div class="containerform">
+          <div class="mb-5">
+            <h4>Masuk</h4>
+          </div>
+          {% if msg %}
+          <p style="color: red;">{{ msg }}</p>
+          {% endif %}
+          <div class="inputlogin mb-3">
+            <input type="email" name="email" placeholder="Email" id="email"/>
+          </div>
+          <div class="inputlogin mb-3">
+            <div class="password">
+              <input type="password" name="password" placeholder="Password" id="password"/>
+              <div class="show-hide" onclick="actionshowhide()">
+                <img src="{{ url_for('static', filename='img/icon/hide.svg') }}" alt="" id="show-password"/>
+              </div>
+            </div>
+          </div>
+          <div class="inputlogin d-flex justify-content-between mb-3">
+            <div class="checkbox d-flex align-items-center">
+              <input type="checkbox">
+              <h6 >Ingat Saya</h6>
+            </div>
+            <a href="">Lupa Kata Sandi?</a>
+          </div>
+          <button type="submit" class="btn btn-primary mb-3" id="buttonmasuk">Masuk</button> <br />
+          <div class="masukdaftar">
+            <p class="text-center">Jika anda tidak memiliki akun <a href="{{ url_for('register') }}">Daftar Disini</a></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+    function actionshowhide() {
+        var password = document.getElementById("password");
+        var img = document.getElementById("show-password");
+  
+        if (password.type=='text') {
+            password.type = "password";
+            img.src = '/static/img/icon/hide.svg';
+        } else {
+            password.type = "text";
+            img.src = '/static/img/icon/show.svg';
+        }
+    }
+  </script>

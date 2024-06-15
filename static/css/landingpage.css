@@ -1,0 +1,271 @@
+@font-face {
+    font-family:PlusJakarta-Regular ;
+    src: url(/static/font/PlusJakartaSans-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body h2{
+        font-family: PlusJakarta-Regular;
+        font-size: 38px;
+        text-transform: capitalize;
+        font-weight: bold;
+}
+body h3{
+        font-family: PlusJakarta-Regular;
+        font-size: 22px;
+        text-transform: capitalize;
+        font-weight: bold;
+}
+body h4{
+    font-family: PlusJakarta-Regular;
+    font-size: 20px;
+    word-spacing: 4px;
+}
+body h5{
+    font-family: PlusJakarta-Regular;
+    font-size: 18px;
+    font-weight: 550;
+}
+body h6{
+    font-family: PlusJakarta-Regular;
+    font-size: 16px;
+    font-weight: 550;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-left: -80px;
+}
+.nav-item li{
+    margin: 0px 15px;
+    font-family: PlusJakarta-Regular;
+}
+.nav-item li a{
+    text-decoration: none;
+    color: #5f5f5f;
+    transition: 0.3s ease-in-out;
+}
+.nav-item li a:hover{
+    color: black;
+}
+#loginbutton{
+    width: 90px;
+    height: 35px;
+    font-family: PlusJakarta-Regular;
+    font-weight: 500    ;
+    background-color: #1877F2;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    filter: drop-shadow(0.5px 4px 2px #0000003b );
+}
+.fotodesclandingpage{
+    position: relative;
+}
+.carouselbutton{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -60px;
+}
+.fotodesclandingpage img{
+    width: 682px;
+    height: 462px;
+    background-size:cover;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    filter: drop-shadow(0.5px 4px 2px #0000003b );
+    overflow: hidden;
+}
+#carouselfotolandingbutton{
+    filter: invert(100%);
+}
+.pesandanlihat{
+    font-family: PlusJakarta-Regular;
+}
+.pesandanlihat .buttonpesan{
+    width: 160px;
+    height: 44px;
+    font-weight: bold;
+    filter: drop-shadow(0.5px 4px 2px #0000003b );
+    background-color: #F4DF2C;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pesandanlihat .buttonpesan:active,.buttonpesan:focus{
+    outline: none;
+    background-color: #ead72b;
+}
+.pesandanlihat a{
+    width: 160px;
+    height: 44px;
+    font-weight: bold;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.pesandanlihat .buttonbaca:hover{
+    width: 160px;
+    height: 44px;
+    font-weight: bold;
+    filter: drop-shadow(0.5px 4px 2px #0000003b );
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.pesandanlihat p a{
+    text-decoration: none;
+    color: black;
+}
+.gunungpopuler{
+    margin: 100px 100px;
+}
+
+.judulgunungpopuler h6 a{
+    color: #000000;
+}
+.fotodandescgunungpopuler img{
+    filter: drop-shadow(0.5px 5px 2px #0000003b );
+}
+.fotodandescgunungpopuler h5{
+    font-family: PlusJakarta-Regular;
+    font-size: 20px;
+    font-weight: 450;
+}
+.pelayananpendakian{
+    position: relative;
+    margin: 100px 0px;
+}
+
+.fotodandescjasa1,.fotodandescjasa2,.fotodandescjasa3{
+    position: relative;
+    text-align: center;
+    margin: 20px 0px;
+    transition: 0.3s ease-in-out;
+    filter: drop-shadow(0.5px 4px 2px #0000003b );
+    
+}
+.fotodandescjasa1:hover, .fotodandescjasa2:hover, .fotodandescjasa3:hover{
+    transform: scale(1.1);
+    filter: drop-shadow(0.7px 5px 2px #00000051 );
+}
+
+.fotodandescjasa1 img, .fotodandescjasa2 img, .fotodandescjasa3 img{
+    border-radius: 20px;
+    filter: brightness(90%);
+
+}
+.descjasa{
+    position: absolute;
+    top: 70%;
+    left: 25%;
+}
+.fotodandescjasa1 h4, .fotodandescjasa2 h4{
+    position: relative;
+    font-family: PlusJakarta-Regular;
+    font-size: 22px;
+    font-weight: 550;
+    color: white;
+}
+.fotodandescjasa3 h4{
+    position: relative;
+    font-family: PlusJakarta-Regular;
+    font-size: 22px;
+    font-weight: 550;
+    color: white;
+    margin-top: -25px;
+}
+.buttonpesanjasa{
+    position: relative;
+    width: 160px;
+    height: 44px;
+    font-weight: 400;
+    filter: drop-shadow(0.5px 4px 2px #0000003b );
+    background-color: #F4DF2C;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.buttonpesanjasa:hover{
+    transform: scale(1.1);
+    background-color: #e6d328;
+    filter: drop-shadow(6px 6px 2px #000000a0 );
+}
+.buttonpesanjasa:active,.buttonpesanjasa:focus{
+    outline: none;
+    background-color: #ead72b;
+}
+.mengapamountserv{
+    margin: 100px 0px;
+}
+.icondandescmengapa img{
+    margin: 0px -50px;
+}
+.icondandescmengapa h5{
+    font-family: PlusJakarta-Regular;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+.icondandescmengapa h6{
+    font-family: PlusJakarta-Regular;
+    font-size: 16px;
+}
+
+.testimoni-card{
+    padding: 20px;
+    width: 400px;
+    height: 230px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+}
+.testimoni-card .nama-rating{
+    display: flex;
+    justify-content: space-between;
+    margin:20px 0px;
+}
+.testimoni-card .nama-rating h5{
+    font-family: PlusJakarta-Regular;
+    font-size: 18px;
+    font-weight: 700;
+}
+.testimoni-card .nama-rating h6{
+    font-family: PlusJakarta-Regular;
+    font-size: 16px;
+    font-weight: 400;
+}
+.testimoni{
+    margin-bottom: 170px;
+}
+.footer-contact img{
+    width: 40px;
+    height: 40px;
+    margin: 0px 5px;
+}
+.footer-contact li{
+    list-style: none;
+}
+.judulfooter{
+    padding: 50px;
+}
+footer{
+    background-color: #2F3538;
+}
+footer h2, footer h6{
+    color: #fff;
+}

@@ -1,0 +1,131 @@
+@font-face {
+    font-family: PlusJakarta-Regular;
+    src: url(/static/font/PlusJakartaSans-Regular.ttf);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body h2 {
+    font-family: PlusJakarta-Regular;
+  }
+  body h2 {
+    font-family: PlusJakarta-Regular;
+    font-size: 38px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h3 {
+    font-family: PlusJakarta-Regular;
+    font-size: 22px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h4 {
+    font-family: PlusJakarta-Regular;
+    font-size: 20px;
+    word-spacing: 4px;
+  }
+  body h5 {
+    font-family: PlusJakarta-Regular;
+    font-size: 18px;
+
+  }
+  body h6 {
+    font-family: PlusJakarta-Regular;
+    font-size: 16px;
+    font-weight:600;
+  }
+
+  .nav-item ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-left: -80px;
+  }
+  .nav-item li {
+    margin: 0px 15px;
+    font-family: PlusJakarta-Regular;
+  }
+  .nav-item li a {
+    text-decoration: none;
+    color: #5f5f5f;
+    transition: 0.3s ease-in-out;
+  }
+  .nav-item li a:hover {
+    color: black;
+  }
+  #loginbutton {
+    width: 90px;
+    height: 35px;
+    font-family: PlusJakarta-Regular;
+    font-weight: 500;
+    background-color: #1877f2;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    filter: drop-shadow(0.5px 4px 2px #0000003b);
+  }
+
+  #formpesanan{
+    width: 795px;
+    height: auto;
+    border: 1px solid #000000; 
+    border-radius: 20px;
+    margin: 70px auto 10px auto;
+    text-align: start;
+  }
+
+  #pesanan1{
+    border: 1px solid #000000;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px;
+  }
+  #pesanan2, #pesanan3{
+    border: 1px solid #000000;
+    padding: 20px;
+  }
+  #pesanan4{
+    border: 1px solid #000000;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 20px;
+  }
+  #bayar{
+    font-family: PlusJakarta-Regular;
+    width: 180px;
+    height: 40px;
+    background-color: #1877f2;
+    border: none;
+    color: #ffffff;
+    border-radius: 15px;
+  }
+  #kembali{
+    font-family: PlusJakarta-Regular;
+    width: 180px;
+    height: 40px;
+    background-color: #ffffff;
+    border: none;
+    color: #1877f2;
+    border: 1px solid #1877f2;
+    border-radius: 15px;
+  }
+  .footer-contact img {
+    width: 40px;
+    height: 40px;
+    margin: 0px 5px;
+  }
+  .footer-contact li {
+    list-style: none;
+  }
+  .judulfooter {
+    padding: 50px;
+  }
+  footer {
+    margin-top: 50px;
+    background-color: #f2f2f2;
+  }
+  

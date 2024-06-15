@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/profil.css">
+    <script src="static/js/jquery.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <!--navbar-->
+    <nav>
+        <div class="navbar d-flex justify-content-around">
+            <div class="logo">
+                <h1><a href="{{ url_for('index') }}"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+            </div>
+            <div class="nav-item">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Beranda</a></li>
+                    <li><a href="{{ url_for('tentangkami') }}">Tentang Kami</a></li>
+                    <li><a href="{{ url_for('mountain') }}">Gunung</a></li>
+                    <li><a href="{{ url_for('cuaca') }}">Cuaca</a></li>
+                    <li><a href="{{ url_for('kontak') }}">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="login">
+                <a href="{{ url_for('login') }}"><button type="submit" class="{{buttonlogin}}" id="loginbutton">Masuk</button></a>
+                 <div class="dropdown">
+                    <a class="btn" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none;">
+                        <img class="{{buttonuser}}" src="/static/uploads/profil/{{gambarprofil}}" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                    </a>     
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--navbar-->
+
+    <div class="main mx-5">
+        <!--navbarprofil dan konten-->
+        <div class="navbarprofil_content">
+            <div class="navbar-content">
+                <div class="descnavbar">
+                    <button type="button" id="profil"><a href="{{ url_for('profil') }}">Profil</a></button>
+                    <ion-icon name="person-outline" ></ion-icon>
+        
+                </div>
+                <div class="descnavbar">
+                    <button type="button" id="pesanan"><a href="{{ url_for('pesanbelumbayar') }}">Pesanan</a></button>
+                    <ion-icon name="receipt-outline"></ion-icon>
+                </div>
+                <div class="{{bukajasa}}" id="descnavbar">
+                    <button type="button" id="bukajasa"><a href="{{ url_for('bukajasa') }}"  style="color: #000000;">Buka Jasa</a></button>
+                    <ion-icon name="storefront-outline"  style="color: #000000;"></ion-icon>
+                </div>
+                <div class="{{dashboard}}" id="descnavbar">
+                    <button type="button" id="dashboard"><a href="{{ url_for('dashboard') }}">Dashboard</a></button>
+                    <ion-icon name="speedometer-outline"></ion-icon>
+                </div>
+            </div>
+            <div class="profil-content">
+                <h3>Buka Jasa</h3>
+                        <form id="formedit" action="{{ url_for('bukajasa') }}" method="post" class="">
+                            <div class="form-content mt-4">
+                                <div class="fotoprofil">
+                                    <img src="/static/uploads/profil/{{gambarprofil}}" alt="">
+                                    <form  action="{{ url_for('updatefotoprofil') }}" method="post" enctype="multipart/form-data">
+                                        <button type="button" id="potoprofil" style="background-color: #ffffff00; border: none; margin: auto; margin: 20px 25px ; text-decoration: underline;">Ubah Foto Profil</button><br>
+                                        <input type="file" name="fotoprofil" id="uploadfotoprofil" style="display: none;">
+                                        <button type="submit" id="simpan" style="display: none ;">Simpan</button>
+                                    </form>
+                                </div>
+                                <div class="editprofil-field">
+                                    <div class="editprofil-content">
+                                        <div class="fielddata-profil">
+                                            <h6>Nama</h6>
+                                            <h6><input type="text" name="nama" value="{{nama}}"></h6>
+                                        </div>
+                                    </div>
+                                    <div class="fielddata-profil-flex">
+                                        <div class="editprofil-content-flex">
+                                            <div class="fielddata-profil">
+                                                <h6>Email</h6>
+                                                <div class="dataprofil overflow-hidden" style=" color: #777E90;"><h6>{{email}}</h6></div>
+                                            </div>
+                                        </div>
+                                        <div class="editprofil-content-flex">
+                                            <div class="fielddata-profil">
+                                                <h6>No HP</h6>
+                                                <h6><input type="number" name="nohp" value="{{nohp}}"></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fielddata-profil-flex mt-4">
+                                        <div class="editprofil-content-flex">
+                                            <div class="fielddata-profil">
+                                                <h6>Jasa</h6>
+                                                <select class="p-0 px-1" name="jasa" id="jasa">
+                                                    <option value="Porter">Porter</option>
+                                                    <option value="Tour Guide">Tour Guide</option>
+                                                    <option value="Penyewaan">Penyewaan Barang</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="editprofil-content-flex">
+                                            <div class="fielddata-profil">
+                                                <h6>Gunung</h6>
+                                                <select class="p-0 px-1" name="gunung" id="gunung">
+                                                    <option value="sumbing">Sumbing</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fielddata-profil-flex">
+                                        <div class="editprofil-content-flex">
+                                            <button type="submit" class="btn btn-primary my-3 mt-5" id="submitbutton3" >Buka Jasa</button> <br/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <!--navbarprofil dan konten-->
+    </div>
+    <!--footer-->
+    <footer>
+        <div class="container">
+            <div class="judulfooter text-center">
+                <h2 class="my-2">MountServ Siap Membantumu</h2>
+                <h6 class="my-5">Halo, kami MountServ berusaha untuk membantu anda dalam kegiatan pendakian anda.</h6>
+            </div>
+            <div class="footer-content d-flex justify-content-between align-items-center py-3">
+                <h1><a href="#"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+                <h6>© 2024 MountServ All Rights Reserved. </h6>
+                <div class="footer-contact d-flex ">
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/whatsapp.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/instagram.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/facebook.png') }}" alt=""/></a></li>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>
+
+<script>
+        function editpassword() {
+            var ubahbutton=document.getElementById('submitbutton1');
+            var editbutton=document.getElementById('submitbutton2');
+            var formpassword=document.getElementById('ubahpassword');
+
+            if (formpassword.classList.contains('d-none')){
+                formpassword.classList.remove('d-none');
+                ubahbutton.classList.add('d-none');
+                editbutton.classList.add('d-none');
+            } else {
+                formpassword.classList.add('d-none');
+                ubahbutton.classList.remove('d-none');
+                editbutton.classList.remove('d-none');
+            }
+        }
+
+        function actionshowhide1() {
+            var password = document.getElementById("passwordlama");
+            var img = document.getElementById("show-password1");
+      
+            if (password.type=='text') {
+                password.type = "password";
+                img.src = '/static/img/icon/hide.svg';
+            } else {
+                password.type = "text";
+                img.src = '/static/img/icon/show.svg';
+            }
+        }
+        function actionshowhide2() {
+            var password = document.getElementById("passwordbaru");
+            var img = document.getElementById("show-password2");
+    
+            if (password.type=='text') {
+                password.type = "password";
+                img.src = '/static/img/icon/hide.svg';
+            } else {
+                password.type = "text";
+                img.src = '/static/img/icon/show.svg';
+            }
+        }
+
+        function actionshowhide3() {
+            var confirmpassword = document.getElementById("confirmpassword");
+            var img = document.getElementById("show-password3");
+    
+            if (confirmpassword.type=='text') {
+                confirmpassword.type = "password";
+                img.src = '/static/img/icon/hide.svg';
+            } else {
+                confirmpassword.type = "text";
+                img.src = '/static/img/icon/show.svg';
+            }
+        }
+
+        function validasipassword(){
+            var passwordlama = document.getElementById('passwordlama').value;
+            var password = document.getElementById('passwordbaru').value;
+            var msgpassword = document.getElementById('msgpassword');
+            var msgconfirmpassword = document.getElementById('msgconfirmpassword');
+            var buttonsubmit = document.getElementById('submitbutton4');
+      
+            if (password.length < 8 && !/[A-Z]/.test(password)) {
+              msgpassword.innerHTML = "Password harus memiliki minimal 8 karakter <br> Password harus memiliki minimal satu huruf besar";
+              buttonsubmit.disabled = true;
+          }
+            else if (password.length < 8) {
+              msgpassword.innerHTML = "Password harus memiliki minimal 8 karakter";
+              buttonsubmit.disabled = true;
+          }
+            else if (!/[A-Z]/.test(password)) {
+              msgpassword.innerHTML = "Password harus memiliki minimal satu huruf besar";
+              buttonsubmit.disabled = true;
+          }
+          else{
+            msgpassword.innerHTML = "";
+            buttonsubmit.disabled = false;
+          }
+            if (passwordlama === password) {
+                msgconfirmpassword.innerHTML = "Password Tidak Boleh Sama Dengan Password Lama!";
+                buttonsubmit.disabled = true;
+            }else{
+                msgconfirmpassword.innerHTML = "";
+                buttonsubmit.disabled = false;
+            }
+        }
+
+        function checkconfirmpassword(){
+            var passwordlama = document.getElementById('passwordlama').value;
+            var password = document.getElementById('passwordbaru').value;
+            var confirmpassword = document.getElementById('confirmpassword').value;
+            var msgconfirmpassword = document.getElementById('msgconfirmpassword');
+            var buttonsubmit = document.getElementById('submitbutton4');
+          
+            if (password != confirmpassword) {
+                msgconfirmpassword.innerHTML = "Password Tidak Sama!";
+                buttonsubmit.disabled = true;
+            }
+            else{
+                msgconfirmpassword.innerHTML = "";
+                buttonsubmit.disabled = false;
+            }
+            if (confirmpassword === '') {
+                msgconfirmpassword.innerHTML = "Password Tidak Boleh Kosong!";
+                buttonsubmit.disabled = true;
+            }
+            else{
+                msgconfirmpassword.innerHTML = "";
+                buttonsubmit.disabled = false;
+            }
+        }
+
+        function editprofil(){
+        var profil=document.getElementById('formprofil');
+        var edit=document.getElementById('formedit');
+
+        if (edit.classList.contains('d-none')){
+            edit.classList.remove('d-none');
+            profil.classList.add('d-none');
+        } else {
+            edit.classList.add('d-none')
+            profil.classList.remove('d-none')
+        }
+    }
+    
+</script>

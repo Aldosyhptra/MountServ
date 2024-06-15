@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/pricelist.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="static/js/jquery.js"></script>
+</head>
+<body>
+    <!--navbar-->
+    <nav>
+        <div class="nav ">
+            <div class="logo">
+                <h1><a href="{{ url_for('index') }}"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+            </div>
+            <div class="nav-item">
+                <ul>
+                    <li><a href="{{ url_for('index') }}" >Beranda</a></li>
+                    <li><a href="{{ url_for('tentangkami') }}" >Tentang Kami</a></li>
+                    <li><a href="{{ url_for('mountain') }}" style="color: black;">Gunung</a></li>
+                    <li><a href="{{ url_for('cuaca') }}">Cuaca</a></li>
+                    <li><a href="{{ url_for('kontak') }}">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="login">
+                <a href="{{ url_for('login') }}"><button type="submit" class="{{buttonlogin}}" id="loginbutton">Masuk</button></a>
+                 <div class="dropdown">
+                    <a class="btn" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none;">
+                        <img class="{{buttonuser}}" src="/static/uploads/profil/{{gambarprofil}}" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                    </a>     
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--navbar-->
+
+    <!--gambar-->
+    <div class="gambarpricelist mb-5">
+        <div id="carouselfotolanding" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <div class="carouselbutton">
+                    <button type="button" id="carouselfotolandingbutton" data-bs-target="#carouselfotolanding" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" id="carouselfotolandingbutton" data-bs-target="#carouselfotolanding" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" id="carouselfotolandingbutton" data-bs-target="#carouselfotolanding" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div> 
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='img/pricelist/carousel/1.jpg') }}" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/pricelist/carousel/2.jpg') }}" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/pricelist/carousel/3.jpg') }}"alt="...">
+              </div>
+            </div>
+        </div>
+    </div>
+<!--gambar-->
+
+<!--pricelist-->
+    <div class="main mx-5">
+        <div class="pricelist">
+            <h3 class="mt-4 text-center">Gunung  {{gunung}}</h3>
+            <h3 class="mb-5 text-center">Jalur  {{jalur}}</h3>
+            <div class="navbar-pricelist">
+                <ul class="d-flex justify-content-center my-4 text-center align-items-center" >
+                    <h4 class="" style="cursor: pointer; color: black; transform: scale(1.1); text-decoration: underline;" onclick="porter()" id="navbarporter">Porter</h4>
+                    <h4 class="" style="cursor: pointer;" onclick="tourguide()" id="navbartourguide">Tour Guide</h4>
+                    <h4 class="" style="cursor: pointer;" onclick="penyewaan()" id="navbarpenyewaan">Penyewaan Alat Pendakian</h4>
+                </ul>
+            </div>
+            <div class="" id="pricelist-content-porter">
+                    <div class="container overflow-hidden ">
+                        <div class="row ">
+                            {% for porter in porter_list %}
+                            <div class="col-sm-4 mx-auto">
+                                <div class="p-3 ">
+                                    <div class="kard p-4 mx-auto" >
+                                        <div class="card-body">
+                                            <h4 class="card-text fw-semibold mt-2 mb-4  text-capitalize">{{ porter.namaproduk}}</h4>
+                                            <h4 class="card-text mb-3 fw-bold text-capitalize">rp {{ porter.harga }}</h4>
+                                            <p class="card-text my-2 text-capitalize">durasi pelayanan jasa : {{ porter.durasi }}</p>
+                                            <p class="card-text my-2 text-capitalize">beban : max {{ porter.maxbeban }}</p>
+                                            <p class="card-text text-body-secondary mt-2 mb-4">{{ porter.deskripsi }}</p>
+                                            <div class="pesanbutton">
+                                                <form action="{{url_for('informasipaketgarung')}}" method="post">
+                                                    <input type="hidden" name="idproduk" value="{{porter._id}}">
+                                                   <button type="submit" class="align-self-end" id="pesanbutton">Pesan</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+            </div>
+            <div class="d-none" id="pricelist-content-tourguide">
+                    <div class="container overflow-hidden ">
+                        <div class="row ">
+                            {% for tourguide in tourguide_list %}
+                            <div class="col-sm-4 mx-auto">
+                                <div class="p-3 ">
+                                    <div class="kard p-4 mx-auto" >
+                                        <div class="card-body">
+                                            <h4 class="card-text fw-semibold mt-2 mb-4  text-capitalize">{{ tourguide.namaproduk }}</h4>
+                                            <h4 class="card-text mb-3 fw-bold text-capitalize">rp {{ tourguide.harga }}</h4>
+                                            <p class="card-text my-2 text-capitalize">durasi pelayanan jasa : {{ tourguide.durasi }}</p>
+                                            <p class="card-text text-body-secondary mt-2 mb-4">{{ tourguide.deskripsi }}</p>
+                                            <div class="pesanbutton">
+                                                <form action="{{url_for('informasipaketgarung')}}" method="post">
+                                                    <input type="hidden" name="idproduk" value="{{tourguide._id}}">
+                                                   <button type="submit" class="align-self-end" id="pesanbutton">Pesan</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+            </div>
+            <div class="d-none" id="pricelist-content-penyewaan">
+                    <div class="container overflow-hidden ">
+                        <div class="row ">
+                            {% for barang in barang_list %}
+                            <div class="col-sm-4">
+                                <div class="p-3 ">
+                                    <div class="kard p-4 mx-auto" >
+                                        <div class="card-body">
+                                            <h4 class="card-text fw-semibold mt-2 mb-4  text-capitalize">{{ barang.namabarang }}</h4>
+                                            <h4 class="card-text mb-3 fw-bold text-capitalize">rp {{ barang.harga }}</h4>
+                                            <p class="card-text text-body-secondary mt-2 mb-4">{{ barang.deskripsi }}</p>
+                                            <div class="pesanbutton">
+                                                <form action="{{url_for('informasipaketgarung')}}" method="post">
+                                                    <input type="hidden" name="idproduk" value="{{barang._id}}">
+                                                   <button type="submit" class="align-self-end" id="pesanbutton">Pesan</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% for paketini in paket %}
+                            <div class="col-sm-4">
+                                <div class="p-3 ">
+                                    <div class="kard p-4 mx-auto" >
+                                        <div class="card-body">
+                                            <h4 class="card-text fw-semibold mt-2 mb-4  text-capitalize">{{ paketini.namaproduk }}</h4>
+                                            <h4 class="card-text mb-3 fw-bold text-capitalize">rp {{ paketini.harga }}</h4>
+                                            <p class="card-text my-2 text-capitalize">durasi pelayanan jasa : {{ paketini.durasi }}</p>
+                                            <p class="card-text text-body-secondary mt-2 mb-4">{{ paketini.deskripsi }}</p>
+                                            <div class="pesanbutton">
+                                                <form action="{{url_for('informasipaketgarung')}}" method="post">
+                                                    <input type="hidden" name="idproduk" value="{{paketini._id}}">
+                                                   <button type="submit" class="align-self-end" id="pesanbutton">Pesan</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!--gunung-->
+        
+    </div>
+    <!--footer-->
+    <footer>
+        <div class="container">
+            <div class="judulfooter text-center">
+                <h2 class="my-2">MountServ Siap Membantumu</h2>
+                <h6 class="my-5">Halo, kami MountServ berusaha untuk membantu anda dalam kegiatan pendakian anda.</h6>
+            </div>
+            <div class="footer-content d-flex justify-content-between align-items-center py-3">
+                <h1><a href="#"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+                <h6>© 2024 MountServ All Rights Reserved. </h6>
+                <div class="footer-contact d-flex ">
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/whatsapp.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/instagram.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/facebook.png') }}" alt=""/></a></li>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>
+
+<script>
+    function porter(){
+        var porter = document.getElementById('pricelist-content-porter');
+        var tourguide = document.getElementById('pricelist-content-tourguide');
+        var penyewaan = document.getElementById('pricelist-content-penyewaan');
+        var navbarporter = document.getElementById('navbarporter');
+        var navbartourguide = document.getElementById('navbartourguide');
+        var navbarpenyewaan = document.getElementById('navbarpenyewaan');
+    
+        if (porter.classList.contains('')) {
+            tourguide.classList.add('d-none')
+            penyewaan.classList.add('d-none')
+            navbarporter.style.color = 'black';
+            navbartourguide.style.color = ''; 
+            navbarpenyewaan.style.color = ''; 
+            navbarporter.style.transform = 'scale(1.1)';
+            navbartourguide.style.transform = '';
+            navbarpenyewaan.style.transform = '';
+            navbarporter.style.textDecoration = "underline";
+            navbartourguide.style.textDecoration = '';
+            navbarpenyewaan.style.textDecoration = '';
+        }
+
+        else{
+            porter.classList.remove('d-none')
+            tourguide.classList.add('d-none')
+            penyewaan.classList.add('d-none')
+            navbarporter.style.color = 'black';
+            navbarporter.style.transform = 'scale(1.1)';
+            navbartourguide.style.color = ''; 
+            navbarpenyewaan.style.color = ''; 
+            navbarporter.style.textDecoration = "underline";
+            navbartourguide.style.textDecoration = '';
+            navbarpenyewaan.style.textDecoration = '';
+        }
+    
+    }
+    
+    function tourguide(){
+        var porter = document.getElementById('pricelist-content-porter');
+        var tourguide = document.getElementById('pricelist-content-tourguide');
+        var penyewaan = document.getElementById('pricelist-content-penyewaan');
+        var navbarporter = document.getElementById('navbarporter');
+        var navbartourguide = document.getElementById('navbartourguide');
+        var navbarpenyewaan = document.getElementById('navbarpenyewaan');
+    
+        if (tourguide.classList.contains('')) {
+            porter.classList.add('d-none')
+            penyewaan.classList.add('d-none')
+            navbartourguide.style.color = 'black'; 
+            navbarporter.style.color = '';
+            navbarpenyewaan.style.color = ''; 
+            navbartourguide.style.transform = 'scale(1.1)';
+            navbarporter.style.transform = '';
+            navbarpenyewaan.style.transform = '';
+            navbartourguide.style.textDecoration = "underline";
+            navbarporter.style.textDecoration = '';
+            navbarpenyewaan.style.textDecoration = '';
+        }
+
+        else{
+            tourguide.classList.remove('d-none')
+            porter.classList.add('d-none')
+            penyewaan.classList.add('d-none')
+            navbartourguide.style.color = 'black';
+            navbarporter.style.color = ''; 
+            navbarpenyewaan.style.color = ''; 
+            navbartourguide.style.transform = 'scale(1.1)';
+            navbarporter.style.transform = '';
+            navbarpenyewaan.style.transform = '';
+            navbartourguide.style.textDecoration = "underline";
+            navbarporter.style.textDecoration = '';
+            navbarpenyewaan.style.textDecoration = '';
+        }
+    }
+    function penyewaan(){
+        var porter = document.getElementById('pricelist-content-porter');
+        var tourguide = document.getElementById('pricelist-content-tourguide');
+        var penyewaan = document.getElementById('pricelist-content-penyewaan');
+        var navbarporter = document.getElementById('navbarporter');
+        var navbartourguide = document.getElementById('navbartourguide');
+        var navbarpenyewaan = document.getElementById('navbarpenyewaan');
+    
+        if (tourguide.classList.contains('')) {
+            tourguide.classList.add('d-none')
+            penyewaan.classList.add('d-none')
+            navbarporter.style.color = '';
+            navbartourguide.style.color = ''; 
+            navbarpenyewaan.style.color = 'black'; 
+            navbarpenyewaan.style.transform = 'scale(1.1)';
+            navbarporter.style.transform = '';
+            navbartourguide.style.transform = '';
+            navbarpenyewaan.style.textDecoration = "underline";
+            navbarporter.style.textDecoration = '';
+            navbartourguide.style.textDecoration = '';
+        }
+
+        else{
+            penyewaan.classList.remove('d-none')
+            tourguide.classList.add('d-none')
+            porter.classList.add('d-none')
+            navbarpenyewaan.style.color = 'black';
+            navbartourguide.style.color = ''; 
+            navbarporter.style.color = '';  
+            navbarpenyewaan.style.transform = 'scale(1.1)';
+            navbarporter.style.transform = '';
+            navbartourguide.style.transform = '';
+            navbarpenyewaan.style.textDecoration = "underline";
+            navbarporter.style.textDecoration = '';
+            navbartourguide.style.textDecoration = '';
+        }
+    }
+</script>

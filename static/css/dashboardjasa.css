@@ -1,0 +1,313 @@
+@font-face {
+    font-family: PlusJakarta-Regular;
+    src: url(/static/font/PlusJakartaSans-Regular.ttf);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body h2 {
+    font-family: PlusJakarta-Regular;
+    font-size: 38px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h3 {
+    font-family: PlusJakarta-Regular;
+    font-size: 22px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h4 {
+    font-family: PlusJakarta-Regular;
+    font-size: 20px;
+    word-spacing: 4px;
+  }
+  body h5 {
+    font-family: PlusJakarta-Regular;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  body h6 {
+    font-family: PlusJakarta-Regular;
+    font-size: 16px;
+    font-weight:600;
+  }
+
+#active{
+    width: 244px;
+    height: 42px;
+    background-color: #E9C842;
+    border-radius: 10px;
+    transform: scale(1.05);
+    box-shadow: 0px 3px 3px #000000ad;
+}
+
+#sidenavbar{
+    box-shadow: 1px 0px 5px #00000045;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+}
+main {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; 
+}
+
+.text-black {
+    color: black;
+}
+.content {
+    flex-grow: 1;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+.profil{
+  display: flex;
+  align-items:  center;
+}
+.profil img{
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.buttonlogout{
+    position: absolute;
+    bottom: 5%;
+}
+#fieldinfo{
+  width: 245px;
+  height: 120px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 3px 4px #00000039;
+}
+.pesanan{
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 0px 2px #00000039;
+    border-radius: 5px;
+    background-color: #fff;
+}
+#pesanditerima, #pesanbatal{
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    white-space:nowrap;
+    margin: 0px -10px;
+}
+.ringkasanpesanan{
+    min-width: 450px;
+    min-height: 200px;
+    max-width: 450px;
+    max-height: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 3px 4px #00000039;
+}
+.namapesanan img{
+    background-color: #1877F2;
+    border-radius: 8px;
+    color: #fff;
+    width: 70px;
+    height: 70px;
+}
+#statuspesanan{
+  width: auto;
+  height: 37px;
+  padding: 8px 12px;
+  font-weight: 400;
+  text-transform: capitalize;
+  background-color: #1877F2;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  color: #fff;
+}
+#logout{
+    width: 224px;
+    height: 43px;
+    background-color: #00000000;
+    border: 1px solid #000;
+    border-radius: 8px;
+    box-shadow: 0px 1px 3px #00000049;
+}
+.pendapatan{
+  width: 700px;
+  height: 285px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 1px 3px #00000049;
+}
+.uangmasuk{
+  width: 180px;
+  height: 60px;
+  padding: 5px;
+  color: #1877F2;
+  border: 2px solid #1877F2;
+  font-family: PlusJakarta-Regular;
+}
+.uangmasuk ion-icon{
+  width: 30px;
+  color: #1877F2;
+  height: auto;
+}
+
+.uangkeluar{
+  width: 180px;
+  height: 60px;
+  padding: 5px;
+  color: #DC3545;
+  border: 2px solid #DC3545;
+  font-family: PlusJakarta-Regular;
+}
+.uangkeluar ion-icon{
+  width: 30px;
+  color: #DC3545;
+  height: auto;
+}
+#tarik{
+  margin: 20px auto;
+  width: 203px;
+  height: 40px;
+  color: #fff;
+  background-color: #1877F2;
+  border: none;
+  border-radius: 10px;
+}
+#hapus{
+  width: 110px;
+  height: 32px;
+  background-color: #00000000;
+  color: #DC3545;
+  border: #DC3545 1px solid;
+  border-radius: 10px;
+}
+#ganti{
+  width: 110px;
+  height: 32px;
+  background-color: #00000000;
+  color: #1877F2;
+  border: #1877F2 1px solid;
+  border-radius: 10px;
+}
+
+.gambar{
+  width: 800px;
+  height: 620px;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+.cuacalokasi{
+  padding: 50px 20px 20px 20px;
+}
+.containercuaca {
+  display: flex;
+  padding: 2px;
+  margin: 0 auto;
+  justify-content: center;
+  
+}
+.boxcuaca{
+  padding: 20px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin: 50px auto 0px auto;
+  width: 736px;
+  height: auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px; 
+  filter: drop-shadow(0px 4px 3px #00000073 );
+}
+.box {
+  flex-grow: 1;
+  margin: 4px;
+  padding: 2px;
+  border-radius: 10px;
+  text-align: center;
+}
+.box img{
+  width: 50px;
+}
+.box i{
+  font-style: normal;
+}
+.program{
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 30px 15px;
+  border-radius: 10px;
+}
+#bergabung{
+  margin-top: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: #1877F2;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  font-family: PlusJakarta-Regular;
+}
+.statistikpesanan, .jumlahpelanggan{
+  background-color: #fff; 
+  padding: 15px;
+  width: 660px;
+  height: 250px;
+  border-radius: 10px;
+  filter: drop-shadow(0px 2px 3px #00000023 );
+  border: 1px solid #6f6f6f;
+}
+
+.email, .totalpenilaian{
+  background-color: #fff; 
+  padding: 15px;
+  width: 450px;
+  height: 250px;
+  border-radius: 10px;
+  filter: drop-shadow(0px 2px 3px #00000023 );
+  border: 1px solid #6f6f6f;
+}
+.ulasanpengguna{
+  padding: 10px 20px;
+  width: 788px;
+  height: 300px;
+  background-color: #fff;
+  filter: drop-shadow(0px 2px 3px #00000023 );
+  border-radius: 10px;  
+}
+.ulasanpengguna h6{
+  font-weight: normal;
+  font-family: PlusJakarta-Regular;
+}
+
+.star-ratingtampil {
+  display: inline-block;
+}
+
+.star-ratingtampil .star {
+  font-size: 24px;
+  color: #ccc; 
+}
+
+.star-ratingtampil .star.active {
+  color: #ffcc00; 
+}
+#submit{
+  width: 60px;
+  height: 30px;
+  background-color: #1877F2;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+}

@@ -1,0 +1,152 @@
+@font-face {
+    font-family:PlusJakarta-Regular ;
+    src: url(/static/font/PlusJakartaSans-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body h2{
+        font-family: PlusJakarta-Regular;
+        font-size: 38px;
+        text-transform: capitalize;
+        font-weight: bold;
+}
+body h3{
+        font-family: PlusJakarta-Regular;
+        font-size: 22px;
+        text-transform: capitalize;
+        font-weight: bold;
+}
+body h4{
+    font-family: PlusJakarta-Regular;
+    font-size: 20px;
+    word-spacing: 4px;
+}
+body h5{
+    font-family: PlusJakarta-Regular;
+    font-size: 18px;
+    font-weight: 550;
+}
+body h6{
+    font-family: PlusJakarta-Regular;
+    font-size: 16px;
+    font-weight: 550;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-left: -80px;
+}
+.nav-item li{
+    margin: 0px 15px;
+    font-family: PlusJakarta-Regular;
+}
+.nav-item li a{
+    text-decoration: none;
+    color: #5f5f5f;
+    transition: 0.3s ease-in-out;
+}
+.nav-item li a:hover{
+    color: black;
+}
+#loginbutton{
+    width: 90px;
+    height: 35px;
+    font-family: PlusJakarta-Regular;
+    font-weight: 500    ;
+    background-color: #1877F2;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    filter: drop-shadow(0.5px 4px 2px #0000003b );
+}
+.direktori{
+    margin: 20px 0px 0px 80px;
+}
+.gunung-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.grid-content1, .grid-content2, .grid-content3, .grid-content4, .grid-content5, .grid-content6{
+    position: relative;
+    flex-basis: calc(50% - 250px);
+    margin: 60px 0px; 
+    justify-content: center;
+    filter: drop-shadow(0.5px 4px 2px #0000003b );
+    transition: 0.3s;
+    
+}
+.grid-content1:hover, .grid-content2:hover, .grid-content3:hover, .grid-content4:hover, .grid-content5:hover, .grid-content6:hover{
+    transform: scale(1.1)
+}
+.grid-content1 img, .grid-content2 img, .grid-content3 img, .grid-content4 img, .grid-content5 img, .grid-content6 img{
+    border-radius: 20px;
+    filter:brightness(90%);
+}
+.descgunung{
+    position: absolute;
+    right: 30%;
+    top: 70%;
+}
+.descjalur{
+    position: absolute;
+    right: 32%;
+    top: 45%;
+}
+.grid-content1 h4, .grid-content2 h4, .grid-content3 h4, .grid-content4 h4, .grid-content5 h4, .grid-content6 h4{
+    position: relative;
+    font-family: PlusJakarta-Regular;
+    font-size: 22px;
+    font-weight: 550;
+    color: white;
+}
+.buttonpilih{
+    position: relative;
+    width: 160px;
+    height: 44px;
+    font-weight: 400;
+    filter: drop-shadow(0.5px 4px 2px #0000003b );
+    background-color: #F4DF2C;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.buttonpilih:hover{
+    transform: scale(1.1);
+    background-color: #e6d328;
+    filter: drop-shadow(6px 6px 2px #000000a0 );
+}
+.buttonpilih:active,.buttonpilih:focus{
+    outline: none;
+    background-color: #ead72b;
+}
+
+.footer-contact img{
+    width: 40px;
+    height: 40px;
+    margin: 0px 5px;
+}
+.footer-contact li{
+    list-style: none;
+}
+.judulfooter{
+    padding: 50px;
+}
+footer{
+    margin-top: 50px;
+    background-color: #2F3538;
+}
+footer h2, footer h6{
+    color: #fff;
+}

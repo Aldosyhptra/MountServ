@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/informasipricelist.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="static/js/jquery.js"></script>
+</head>
+<body>
+    <!--navbar-->
+    <nav>
+        <div class="navbar d-flex justify-content-around">
+            <div class="logo">
+                <h1><a href="{{ url_for('index') }}"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+            </div>
+            <div class="nav-item">
+                <ul>
+                    <li><a href="{{ url_for('index') }}" >Beranda</a></li>
+                    <li><a href="{{ url_for('tentangkami') }}" >Tentang Kami</a></li>
+                    <li><a href="{{ url_for('mountain') }}" style="color: black;">Gunung</a></li>
+                    <li><a href="{{ url_for('cuaca') }}">Cuaca</a></li>
+                    <li><a href="{{ url_for('kontak') }}">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="login">
+                <a href="{{ url_for('login') }}"><button type="submit" class="{{buttonlogin}}" id="loginbutton">Masuk</button></a>
+                 <div class="dropdown">
+                    <a class="btn" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none;">
+                        <img class="{{buttonuser}}" src="/static/uploads/profil/{{gambarprofil}}" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                    </a>     
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--navbar-->
+
+    <!--gambar-->
+    <div class="gambarpricelist">
+        <div id="carouselfotolanding" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <div class="carouselbutton">
+                    <button type="button" id="carouselfotolandingbutton" data-bs-target="#carouselfotolanding" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" id="carouselfotolandingbutton" data-bs-target="#carouselfotolanding" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" id="carouselfotolandingbutton" data-bs-target="#carouselfotolanding" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div> 
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='img/pricelist/carousel/1.jpg') }}" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/pricelist/carousel/2.jpg') }}" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/pricelist/carousel/3.jpg') }}"alt="...">
+              </div>
+            </div>
+        </div>
+    </div>
+<!--gambar-->
+
+<!--pricelist-->
+<div class="pricelist">
+    <div class="navbar-pricelist">
+        <ul class="d-flex justify-content-evenly mb-5 text-center align-items-center" >
+            <h4 class="" style="cursor: pointer; color: black; transform: scale(1.1); text-decoration: underline;" onclick="informasi('paket')" id="navbarpaket">Informasi Paket</h4>
+            <h4 class="" style="cursor: pointer;" onclick="informasi('gunung')" id="navbargunung">Informasi dan Syarat Jalur Gunung</h4>
+        </ul>
+        <hr>
+    </div>
+
+        <div class="main mx-5">
+
+            <div id="informasipaket" class="">
+                <div class="pricelist-flex d-flex justify-content-around my-5">
+                    <div class="informasiproduk">
+                            <h3 class="text-capitalize fw-semibold">{{ namaproduk }}</h3>
+                            <div class="kard p-4 mx-auto">
+                                <h6 class="card-text text-capitalize">gunung : {{ gunung }}</h6>
+                                <h6 class="card-text text-capitalize">jalur : {{ jalur }}</h6>
+                                <h6 class="card-text text-capitalize">durasi pelayanan jasa : {{ durasi }}</h6>
+                                <h6 class="card-text text-capitalize">beban : max {{ maxbeban }}</h6>
+                                <div class="fasilitas">
+                                    <h6>Fasilitas :</h6>
+                                    <ul style="list-style: disc;">
+                                        {% for deskripsi in deskripsifasilitas %}
+                                        <li>{{deskripsi}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                    </div>
+                    <form action="{{ url_for('checkout') }}" method="post">
+                        <div class="tanggal-bayar mt-5">
+                            <div class="tangdakiturun d-flex justify-content-between">
+                                <div class="tanggal">
+                                    <h5>Tanggal Mendaki</h5>
+                                    <input type="date" name="tanggalmendaki" id="tanggalmendaki">
+                                </div>
+                                <div class="tanggal">
+                                    <h5>Tanggal Turun</h5>
+                                    <input type="date" name="tanggalturun" id="tanggalturun" >
+                                </div>
+                            </div>
+                            <div class="{{barangsewa}}">
+                            <h5 class="mt-4">Barang Yang DiPesan</h5>
+                            <div class="" id="barangsewaan">
+                                <!-- Button trigger modal -->
+                                <div id="selected-products" class="px-2"></div>
+                                <input type="hidden" name="barangsewa" id="barangsewa">
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h1 class="modal-title fs-5" id="exampleModalLabel">Penyewaan Alat Pendaki</h1>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <div id="product-from">
+                                            {% for product in products %}
+                                              <div class="d-flex justify-content-between my-3">
+                                                <h6 style="width: 150px;" data-name="{{ product.namabarang }}">{{ product.namabarang }}</h6>
+                                                <h6 style="width: 100px;" data-price="{{ product.harga }}">Rp. {{ product.harga }}</h6>
+                                                <input type="checkbox" name="product" value="{{ product._id }}" data-name="{{ product.namabarang }}" data-price="{{ product.harga }}">
+                                              </div>
+                                            {% endfor %}
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                <!--{% for product in products %}
+                                    <input type="checkbox" name="product" value="{{ product._id }}"> {{ product.name }} ({{ product.price }})<br>
+                                {% endfor %} -->
+                            </div>
+                            
+                            <div class="d-flex justify-content-end">
+                                <button type="button" class="me-2" id="submitbutton" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Tambahkan Pesanan
+                                </button>
+                            </div>
+                            </div>
+                            <div class="bayar mt-4">
+                                <h5>Harga</h5>
+                                <div class="formbayar">
+                                    <div class="{{tabelharga}}" id="pesanpaket">
+                                        <h6 class="text-capitalize">{{ jenisproduk }}</h6>
+                                        <h6 >Rp. {{ harga }}</h6>
+                                        <input style="display: none;" type="number" oninput="if(this.value.length > 1) this.value = this.value.slice(0,1)">
+                                    </div>
+                                    <div class="{{tabelharga1}}" id="pesanpaket">
+                                        <h6 class="text-capitalize">{{ porter }}</h6>
+                                        <h6>Rp. {{ hargaporter }}</h6>
+                                    </div>
+                                    <div class="{{tabelharga1}}" id="pesanpaket">
+                                        <h6 class="text-capitalize">{{ tourguide }}</h6>
+                                        <h6>Rp. {{ hargatourguide }}</h6>
+                                    </div>
+                                    <div class="{{tabelharga1}}" id="pesanpaket">
+                                        <h6 class="text-capitalize">{{ penyewaan }}</h6>
+                                        <h6 id="total-price">Rp </h6>
+                                        <input type="hidden" name="hargapenyewaan" id="hargapenyewaan">
+                                    </div>
+                                    <hr>
+                                    <div class="{{portertourguide}}" id="pesanpaket" style="margin-top: -20px;">
+                                        <h6>Total</h6>
+                                        <h6>Rp {{total}} </h6>
+                                        <input type="hidden" name="idproduk" value="{{idproduk}}">
+                                    </div>
+                                    <div class="{{paket}}" id="pesanpaket" style="margin-top: -20px;">
+                                        <h6>Total</h6>
+                                        <h6 id="total">Rp </h6>
+                                        <input type="hidden" name="idproduk" value="{{idproduk}}">
+                                        <input type="hidden" name='totalpesanan' id="totalpesanan">
+                                    </div>
+                                </div>
+                                <div class="button">
+                                    <button type="submit" id="submitbutton">Pesan Sekarang</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="informasigunung" class="d-none">
+                    <form class="d-flex justify-content-around my-5" action="{{ url_for('informasipaketgarung') }}" method="get">
+                        <div class="deskripsiinformasi">
+                            <h3 style="text-transform: capitalize;">gunung {{ gunung }} jalur {{ jalur }}</h3>
+                            <h6 style="font-weight: 500;">{{ deskripsigunung }}</h6>
+                            <br>
+                            <h6 style="font-weight: normal;">Rute dan waktu tempu jalur {{ jalur }}</h6>
+                            <ul style="list-style: decimal;">
+                                {% for deskripsi in deskripsirute %}
+                                <li>{{deskripsi}}</li>
+                                {% endfor %}
+                            </ul>
+                            <br><br>
+                            <h3 style="text-transform: capitalize;">persyaratan jalur {{ jalur }}</h3>
+                            <ul style="list-style: disc;">
+                                {% for deskripsi in deskripsisyarat %}
+                                <li>{{deskripsi}}</li>
+                                {% endfor %}
+                            </ul>
+                            <br>
+                            <h3 style="text-transform: capitalize;">larangan jalur {{ jalur }}</h3>
+                            <ul style="list-style: disc;">
+                                {% for deskripsi in deskripsilarangan %}
+                                <li>{{deskripsi}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="peta">
+                            <h3 style="text-transform: capitalize;">alamat basecamp</h3>
+                            <h6>{{ alamatbasecamp }}</h6>
+                            <br><br><br>
+                            <h3 style="text-transform: capitalize;"> peta jalur pendakian</h3>
+                            <img src="/static/uploads/peta/{{peta}}" alt="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--gunung-->
+        
+    </div>
+    <!--footer-->
+    <footer>
+        <div class="container">
+            <div class="judulfooter text-center">
+                <h2 class="my-2">MountServ Siap Membantumu</h2>
+                <h6 class="my-5">Halo, kami MountServ berusaha untuk membantu anda dalam kegiatan pendakian anda.</h6>
+            </div>
+            <div class="footer-content d-flex justify-content-between align-items-center py-3">
+                <h1><a href="#"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+                <h6>© 2024 MountServ All Rights Reserved. </h6>
+                <div class="footer-contact d-flex ">
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/whatsapp.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/instagram.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/facebook.png') }}" alt=""/></a></li>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>
+
+<script>
+        function informasi(target) {
+            var informasipaket = document.getElementById('informasipaket');
+            var informasigunung = document.getElementById('informasigunung');
+            var navbarpaket = document.getElementById('navbarpaket');
+            var navbargunung = document.getElementById('navbargunung');
+    
+            if (target === 'paket') {
+                informasipaket.classList.remove('d-none');
+                informasigunung.classList.add('d-none');
+                navbarpaket.style.color = 'black';
+                navbargunung.style.color = '';
+                navbarpaket.style.transform = 'scale(1.1)';
+                navbargunung.style.transform = '';
+                navbarpaket.style.textDecoration = 'underline';
+                navbargunung.style.textDecoration = '';
+            } else if (target === 'gunung') {
+                informasigunung.classList.remove('d-none');
+                informasipaket.classList.add('d-none');
+                navbargunung.style.color = 'black';
+                navbarpaket.style.color = '';
+                navbargunung.style.transform = 'scale(1.1)';
+                navbarpaket.style.transform = '';
+                navbargunung.style.textDecoration = 'underline';
+                navbarpaket.style.textDecoration = '';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const selectedProductsContainer = document.getElementById('selected-products');
+            const totalPriceContainer = document.getElementById('total-price');
+            const totalContainer = document.getElementById('total'); // Memilih elemen terakhir dari div dengan kelas 'total'
+            const hargaporter = parseFloat("{{ hargaporter }}"); // Mengambil harga porter dari template
+            const hargatourguide = parseFloat("{{ hargatourguide }}"); // Mengambil harga tourguide dari template
+            let selectedProducts = [];
+            let totalPrice = 0;
+        
+            checkboxes.forEach((checkbox) => {
+                checkbox.addEventListener('change', (event) => {
+                    const productId = event.target.value;
+                    const productName = event.target.getAttribute('data-name');
+                    const productPrice = parseFloat(event.target.getAttribute('data-price'));
+        
+                    if (event.target.checked) {
+                        selectedProducts.push({ id: productId, name: productName, price: productPrice });
+                        totalPrice += productPrice;
+                    } else {
+                        selectedProducts = selectedProducts.filter(product => product.id !== productId);
+                        totalPrice -= productPrice;
+                    }
+        
+                    updateSelectedProducts();
+                    updateTotalPrice();
+                    updateTotal();
+                });
+            });
+        
+            function updateSelectedProducts() {
+                selectedProductsContainer.innerHTML = '';
+                selectedProducts.forEach((product) => {
+                    const productElement = document.createElement('div');
+                    productElement.textContent = `${product.name} `;
+                    selectedProductsContainer.appendChild(productElement);
+                    const selectedProductsString = selectedProducts.map(product => product.name).join(', '); 
+                    selectedProductsContainer.textContent = selectedProductsString; 
+                    document.getElementById('barangsewa').value = selectedProductsString;
+                });
+            }
+        
+            function updateTotalPrice() {
+                totalPriceContainer.textContent = `Rp. ${totalPrice.toFixed(0)}`; // Ubah ke format tanpa desimal
+                const hargapenyewaan=document.getElementById('hargapenyewaan');
+                hargapenyewaan.value = totalPrice;
+            }
+        
+            function updateTotal() {
+                const total = totalPrice + hargaporter + hargatourguide; // Hitung total harga
+                totalContainer.textContent = `Rp. ${total.toFixed(0)}`; // Tampilkan total harga
+                const totalpesanan=document.getElementById('totalpesanan');
+                totalpesanan.value = total;
+
+            }
+        });
+</script>

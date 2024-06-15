@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/bayar.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="static/js/jquery.js"></script>
+</head>
+<body>
+    <!--navbar-->
+    <nav>
+        <div class="navbar d-flex justify-content-around">
+            <div class="logo">
+                <h1><a href="{{ url_for('index') }}"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+            </div>
+            <div class="nav-item">
+                <ul>
+                    <li><a href="{{ url_for('index') }}" >Beranda</a></li>
+                    <li><a href="{{ url_for('tentangkami') }}" >Tentang Kami</a></li>
+                    <li><a href="{{ url_for('mountain') }}" style="color: black;">Gunung</a></li>
+                    <li><a href="{{ url_for('cuaca') }}">Cuaca</a></li>
+                    <li><a href="{{ url_for('kontak') }}">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="login">
+                <a href="{{ url_for('login') }}"><button type="submit" class="{{buttonlogin}}" id="loginbutton">Masuk</button></a>
+                 <div class="dropdown">
+                    <a class="btn" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none;">
+                        <img class="{{buttonuser}}" src="/static/uploads/profil/{{gambarprofil}}" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                    </a>     
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--navbar-->
+
+<!--bayar-->
+        <div class="main mx-5 text-center">
+            <h3>Selesaikan Pembayaran Anda</h3>
+            <form class="" id="formpesanan" action="" method="post">
+                <div class="" id="pesanan1">
+                    <h5 style="text-transform: capitalize;">Gunung : {{gunung}}</h5>
+                    <h5 style="text-transform: capitalize;">Jalur : {{jalur}}</h5>
+                </div>
+                <div class="" id="pesanan2">
+                    <h5 style="text-transform: capitalize;">{{namaproduk}}</h5>
+                    <h5 style="text-transform: capitalize;">Total : Rp.{{harga}}</h5>
+                    <h5 style="text-transform: capitalize;">Tanggal Mendaki :  {{tanggalmendaki}}</h5>
+                    <h5 style="text-transform: capitalize;">Tanggal Turun : {{tanggalturun}}</h5>
+                </div>
+                <div class="{{ewallet}}" id="pesanan3">
+                    <h5 style="text-transform: capitalize;">Metode Pembayaran : {{metodepembayaran}}</h5>
+                </div>
+                <div class="{{bank}}" id="pesanan4">
+                    <h5 style="text-transform: capitalize;">Metode Pembayaran : {{metodepembayaran}}</h5>
+                    <h5 style="text-transform: capitalize;">Nomor Virtual Account : {{virtualakun}}</h5>
+                </div>
+            </form>
+            <div class="buttonbayarkembali">
+                <br>
+                <form action="{{ url_for('pesanselesaibayar') }}" method="post">
+                    <button type="submit" id="bayar">Bayar Sekarang</button>
+                </form>
+                <br>
+                <button type="submit" id="kembali">Kembali</button>
+            </div>
+        </div>
+
+        <!--footer-->
+    <footer>
+        <div class="container">
+            <div class="judulfooter text-center">
+                <h2 class="my-2">MountServ Siap Membantumu</h2>
+                <h6 class="my-5">Halo, kami MountServ berusaha untuk membantu anda dalam kegiatan pendakian anda.</h6>
+            </div>
+            <div class="footer-content d-flex justify-content-between align-items-center py-3">
+                <h1><a href="#"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+                <h6>© 2024 MountServ All Rights Reserved. </h6>
+                <div class="footer-contact d-flex ">
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/whatsapp.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/instagram.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/facebook.png') }}" alt=""/></a></li>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    function selectMethod(method) {
+        // Set the button text to the selected method
+        document.getElementById('metode').innerText = method;
+        document.getElementById('metodepembayaran').value = method;
+        // Hide the modal
+        $('#modalmetode').modal('hide');
+    }
+</script>

@@ -1,0 +1,98 @@
+@font-face {
+    font-family: PlusJakarta-Regular;
+    src: url(/static/font/PlusJakartaSans-Regular.ttf);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body h2 {
+    font-family: PlusJakarta-Regular;
+  }
+  body h2 {
+    font-family: PlusJakarta-Regular;
+    font-size: 38px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h3 {
+    font-family: PlusJakarta-Regular;
+    font-size: 22px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h4 {
+    font-family: PlusJakarta-Regular;
+    font-size: 20px;
+    word-spacing: 4px;
+  }
+  body h5 {
+    font-family: PlusJakarta-Regular;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  body h6 {
+    font-family: PlusJakarta-Regular;
+    font-size: 16px;
+    font-weight:600;
+  }
+  .navbar {
+    display: flex;
+    align-self: start;
+  }
+  .checkout{
+    margin: 60px 0px;
+  }
+  .pesanan, .pengguna{
+    width:484px ;
+    height: auto;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .bayar h5{
+    font-weight: normal;
+  }
+  .bayar input{
+    width: 484px;
+    height: 45px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+  }
+  .bayar button{
+    font-family: PlusJakarta-Regular;
+    width: 484px;
+    height: 45px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .modal-body img{
+    width: 30px;
+    height: auto;
+  }
+  .emoney, .bank{
+    align-items: center;
+  }
+  #metode{
+    outline: none;
+    background-color: #ffffff;
+    border: 1px #000000 solid;
+  }
+  #bayar{
+    outline: none;
+    border: none;
+    background-color: #1877F2;
+    color: #ffffff;
+  }
+  #kembali{
+    outline: none;
+    border:1px solid #1877F2;
+    background-color: #ffffff;
+    color: #1877F2;
+  }
+
+  

@@ -1,0 +1,123 @@
+@font-face {
+    font-family: PlusJakarta-Regular;
+    src: url(/static/font/PlusJakartaSans-Regular.ttf);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body h2 {
+    font-family: PlusJakarta-Regular;
+    font-size: 38px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h3 {
+    font-family: PlusJakarta-Regular;
+    font-size: 22px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h4 {
+    font-family: PlusJakarta-Regular;
+    font-size: 20px;
+    word-spacing: 4px;
+  }
+  body h5 {
+    font-family: PlusJakarta-Regular;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  body h6 {
+    font-family: PlusJakarta-Regular;
+    font-size: 16px;
+    font-weight:600;
+  }
+
+#active{
+    width: 244px;
+    height: 42px;
+    background-color: #E9C842;
+    border-radius: 10px;
+    transform: scale(1.05);
+    box-shadow: 0px 3px 3px #000000ad;
+}
+
+#sidenavbar{
+    box-shadow: 1px 0px 5px #00000045;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+}
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+.text-black {
+    color: black;
+}
+.profil{
+  display: flex;
+  align-items:  center;
+}
+.profil img{
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.content {
+  flex-grow: 1;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+.buttonlogout{
+    position: absolute;
+    bottom: 5%;
+}
+.pesanan{
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 0px 2px #00000039;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.headerpesanan{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-bottom:1px solid #000000;
+}
+.listpesanan{
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    white-space:nowrap;
+    margin: 0px -10px;
+}
+#pesansekilas{
+    border-bottom: 1px solid #000000;
+}
+
+#lihat{
+    width: 102px;
+    height: 36px;
+    background-color: #1877F2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    margin-right: -30px;
+}
+#logout{
+    width: 224px;
+    height: 43px;
+    background-color: #00000000;
+    border: 1px solid #000;
+    border-radius: 8px;
+    box-shadow: 0px 1px 3px #00000049;
+}

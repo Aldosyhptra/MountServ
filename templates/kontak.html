@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/kontak.css">
+    <script src="static/js/jquery.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--navbar-->
+    <nav>
+        <div class="navbar d-flex justify-content-around">
+            <div class="logo">
+                <h1><a href="{{ url_for('index') }}"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+            </div>
+            <div class="nav-item">
+                <ul>
+                    <li><a href="{{ url_for('index') }}" >Beranda</a></li>
+                    <li><a href="{{ url_for('tentangkami') }}">Tentang Kami</a></li>
+                    <li><a href="{{ url_for('mountain') }}">Gunung</a></li>
+                    <li><a href="{{ url_for('cuaca') }}">Cuaca</a></li>
+                    <li><a href="{{ url_for('kontak') }}" style="color: black;">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="login">
+                <a href="{{ url_for('login') }}"><button type="submit" class="{{buttonlogin}}" id="loginbutton">Masuk</button></a>
+                 <div class="dropdown">
+                    <a class="btn" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none;">
+                        <img class="{{buttonuser}}" src="/static/uploads/profil/{{gambarprofil}}" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                    </a>     
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--navbar-->
+
+    <div class="main mx-5">
+      
+        <!--hubungi-->
+        <div class="hubungikami">
+            <div class="hubungikami-content">
+                <div class="formhubungikami">
+                    <form action="" method="post">
+                        <h2>Hubungi Kami</h2>
+                        <h6 class="mt-3 mb-5">Jika Anda memiliki pertanyaan, saran, atau masukan, jangan ragu untuk menghubungi kami melalui formulir di bawah ini</h6>
+                        <div class="inputhubungi my-4">
+                            <input type="text" name="nama" placeholder="Nama Lengkap" id="nama" required/>
+                        </div>
+                        <div class="inputhubungi my-4">
+                            <input type="number" name="nama" placeholder="Nomor Telepon" id="nohp" required/>
+                        </div>
+                        <div class="inputhubungi my-4">
+                            <input type="text" name="deskripsi" placeholder="Deskripsi" id="nama" required/>
+                        </div>
+                        <button type="submit" class="btn btn-primary my-3" id="submitbutton" >Kirim</button> <br/>
+                    </form>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.9063879486876!2d110.33056273431147!3d-7.792487182775547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59dd471e4c1b%3A0xee5472c4dfd1658b!2sFakultas%20Teknik%20dan%20Teknologi%20Informasi%20UNJAYA!5e0!3m2!1sid!2sid!4v1715760492905!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <!--hubungi-->
+
+        <!--seringditanya-->
+        <div class="pertanyaansering">
+            <div class="pertanyaansering-content">
+                <img src="{{ url_for('static', filename='img/hubungikami/1.png') }}" alt="...">
+                <div class="deskpertanyaansering">
+                    <h2 class="my-3">Paling Sering Ditanya</h2>
+                    <div class="formpertanyaan">
+                        <div class="pertanyaan">
+                            <h4 id="judul1" class="judul" style="cursor: pointer; font-weight: bold;" onclick="pertanyaan('deskripsi1')">Berapa lama waktu yang dibutuhkan untuk mencapai puncak</h4>
+                            <img id="deskripsi1" src="{{ url_for('static', filename='img/hubungikami/down.png') }}" alt="...">
+                        </div>
+                        <p id="deskripsi1" class="deskripsi" style="display: none;">Waktu yang dibutuhkan untuk mencapai puncak tergantung pada beberapa faktor, seperti jalur pendakian, kondisi fisik pendaki, dan cuaca.</p>
+                        <hr>
+                        <div class="pertanyaan">
+                            <h4 id="judul2" class="judul" style="cursor: pointer; font-weight: bold;" onclick="pertanyaan('deskripsi2')">Apakah ada persyaratan kesehatan</h4>
+                            <img id="deskripsi2" src="{{ url_for('static', filename='img/hubungikami/down.png') }}" alt="...">
+                        </div>
+                        <p id="deskripsi2" class="deskripsi" style="display: none;">Waktu yang dibutuhkan untuk mencapai puncak tergantung pada beberapa faktor, seperti jalur pendakian, kondisi fisik pendaki, dan cuaca.</p>
+                        <hr>
+                        <div class="pertanyaan">
+                            <h4 id="judul2" class="judul" style="cursor: pointer; font-weight: bold;" onclick="pertanyaan('deskripsi3')">Berapa biaya yang dibutuhkan untuk pendakian</h4>
+                            <img id="deskripsi3" src="{{ url_for('static', filename='img/hubungikami/down.png') }}" alt="...">
+                        </div>
+                            <p id="deskripsi3" class="deskripsi" style="display: none;">Waktu yang dibutuhkan untuk mencapai puncak tergantung pada beberapa faktor, seperti jalur pendakian, kondisi fisik pendaki, dan cuaca.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--seringditanya-->
+        
+    </div>
+    <!--footer-->
+    <footer>
+        <div class="container">
+            <div class="judulfooter text-center">
+                <h2 class="my-2">MountServ Siap Membantumu</h2>
+                <h6 class="my-5">Halo, kami MountServ berusaha untuk membantu anda dalam kegiatan pendakian anda.</h6>
+            </div>
+            <div class="footer-content d-flex justify-content-between align-items-center py-3">
+                <h1><a href="#"><img src="/static/img/icon/logo.png" alt="" /></a></h1>
+                <h6>© 2024 MountServ All Rights Reserved. </h6>
+                <div class="footer-contact d-flex ">
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/whatsapp.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/instagram.png') }}" alt=""/></a></li>
+                    <li><a href=""><img src="{{ url_for('static', filename='img/landingpage/icon/facebook.png') }}" alt=""/></a></li>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>
+
+<script>
+    function pertanyaan(id) {
+        var deskripsi = document.querySelectorAll('.deskripsi');
+        var judul = document.querySelectorAll('.judul');
+        var img = document.querySelectorAll(".deskripsi");
+        
+        for (var i = 0; i < deskripsi.length; i++) {
+            if (deskripsi[i].id === id) {
+                if (deskripsi[i].style.display === "none" || deskripsi[i].style.display === "") {
+                    deskripsi[i].style.display = "block";
+                    judul[i].style.color = "black";
+                } else {
+                    deskripsi[i].style.display = "none";
+                    judul[i].style.color = ''
+                }
+            } else {
+                deskripsi[i].style.display = "none"; 
+                judul[i].style.color = ''
+            }
+        }
+        for (var i = 0; i < imgs.length; i++) {
+            if (imgs[i].parentNode.querySelector('.deskripsi').id === id) {
+                if (imgs[i].src.endsWith('/static/hubungikami/down.png')) { // Periksa apakah gambar saat ini menampilkan panah ke bawah
+                    imgs[i].src = "{{ url_for('static', filename='img/hubungikami/up.png') }}"; // Mengubah gambar menjadi panah ke atas
+                } else {
+                    imgs[i].src = "{{ url_for('static', filename='img/hubungikami/down.png') }}"; // Mengubah gambar menjadi panah ke bawah
+                }
+            } else {
+                imgs[i].src = "{{ url_for('static', filename='img/hubungikami/down.png') }}"; // Mengubah gambar lain menjadi panah ke bawah
+            }
+        }
+    }
+    
+    
+</script>

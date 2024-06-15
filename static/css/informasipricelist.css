@@ -1,0 +1,232 @@
+@font-face {
+    font-family: PlusJakarta-Regular;
+    src: url(/static/font/PlusJakartaSans-Regular.ttf);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body h2 {
+    font-family: PlusJakarta-Regular;
+    font-size: 38px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h3 {
+    font-family: PlusJakarta-Regular;
+    font-size: 22px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  body h4 {
+    font-family: PlusJakarta-Regular;
+    font-size: 20px;
+    word-spacing: 4px;
+  }
+  body h5 {
+    font-family: PlusJakarta-Regular;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  body h6 {
+    font-family: PlusJakarta-Regular;
+    font-size: 16px;
+    font-weight:600;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .nav-item ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-left: -80px;
+  }
+  .nav-item li {
+    margin: 0px 15px;
+    font-family: PlusJakarta-Regular;
+  }
+  .nav-item li a {
+    text-decoration: none;
+    color: #5f5f5f;
+    transition: 0.3s ease-in-out;
+  }
+  .nav-item li a:hover {
+    color: black;
+  }
+  #loginbutton {
+    width: 90px;
+    height: 35px;
+    font-family: PlusJakarta-Regular;
+    font-weight: 500;
+    background-color: #1877f2;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    filter: drop-shadow(0.5px 4px 2px #0000003b);
+  }
+  .carousel-item {
+    position: relative;
+  }
+  .carousel-item img {
+    object-fit: cover;
+    width: 1720px;
+    height: 710px;
+  }
+  .carousel-item::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 20%;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+      pointer-events: none;
+  }
+  .navbar-pricelist h4{
+      text-align: center;
+      margin: 0px 30px;
+      text-decoration: none;
+      color: #5f5f5f;
+      transition: 0.3s ease-in-out;
+  }
+  .navbar-pricelist h4:hover{
+      color: #000000;
+  }
+  .pricelist{
+      margin-top: 40px;
+  }
+  .kard {
+    position: relative;
+    width: 453px;
+    height: auto;
+    margin: 20px 0px;
+    justify-content: center;
+    border: 1px solid #5f5f5f;
+    border-radius: 20px;
+    transition: 0.3s;
+  }
+  
+  .card-body h4 {
+    position: relative;
+    font-family: PlusJakarta-Regular;
+    font-size: 22px;
+    font-weight: 550;
+    color: #000000;
+  }
+  
+  .pesanbutton button{
+      position: absolute;
+      bottom: 5%;
+      right: 25%;
+      width: 160px;
+      height: 58px;
+      font-family: PlusJakarta-Regular;
+      font-weight: 500;
+      background-color: #E9C842;
+      border: none;
+      border-radius: 40px;
+      color: #000000;
+      filter: drop-shadow(0.5px 4px 2px #0000003b);
+    }
+    .fasilitas li{
+      font-family: PlusJakarta-Regular;
+    }
+    .tanggal-bayar{
+      width: 600px;
+      height: auto;
+    }
+
+    .tanggal-bayar .tanggal input[type='date']{
+      width: 271px;
+      height: 49px;
+      border: 1px solid #000000;
+      border-radius: 20px;
+      padding: 10px;
+    }
+
+    .formbayar{
+      width: 600px;
+      height: auto;
+      border: 1px solid #000000;
+      border-radius:  20px;
+
+    }
+    #barangsewaan{
+      display: block;
+      padding: 5px;
+      margin: 20px 0px;
+      min-height: 36px;
+      border-radius: 10px;
+      border: 1px solid #000000;
+    }
+    #pesanpaket{
+      padding: 30px 20px 30px 20px;
+      margin-bottom: -20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .total{
+      padding: 20px;
+      margin-top: -20px;
+    }
+
+    .button{
+      display: flex;
+      justify-content: end;
+      margin: 20px 0px;
+    }
+    #submitbutton{
+      width: 212px;
+      height: 47px;
+      background-color: #1877f2;
+      font-family: PlusJakarta-Regular;
+      color: #ffffff;
+      outline: none;
+      border: none;
+      border-radius: 20px;
+    
+    }
+
+    .deskripsiinformasi{
+      width: 650px;
+      height: auto;
+    }
+    .deskripsiinformasi li{
+      font-family: PlusJakarta-Regular;
+    }
+    .peta{
+      width: 400px;
+      height: auto;
+    }
+    .peta img{
+      object-fit: cover;
+      background-size: cover;
+      width: 400px;
+      height: auto;
+      border-radius: 20px;
+      border: 1px solid #000000;
+      filter: drop-shadow(0.5px 4px 2px #0000003b);
+    }
+  .footer-contact img {
+    width: 40px;
+    height: 40px;
+    margin: 0px 5px;
+  }
+  .footer-contact li {
+    list-style: none;
+  }
+  .judulfooter {
+    padding: 50px;
+  }
+  footer{
+    margin-top: 50px;
+    background-color: #2F3538;
+}
+footer h2, footer h6{
+    color: #fff;
+}

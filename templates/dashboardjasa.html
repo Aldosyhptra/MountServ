@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/dashboardjasa.css">
+    <link rel="stylesheet" href="/static/css/sidebars.css">
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/sidebars.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+
+<body>
+
+<main class="d-flex flex-nowrap">
+      <div class="position-relative d-flex flex-column flex-shrink-0 p-3 text-bg-black " style="width: 280px;" id="sidenavbar">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-black text-decoration-none">
+          <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+          <span class="fs-4"><img src="static/img/icon/logo.png" alt="" class="mb-5"></span>
+        </a>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+          <li id="active">
+            <a href="{{url_for('dashboard')}}" class="nav-link text-black">
+                <img width="16" height="16" src="static/img/dashboard/icon/dashboard.svg" alt="">
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('dashboardpesanan')}}" class="nav-link text-black">
+              <img width="16" height="16" src="static/img/dashboard/icon/pesanan.svg" alt="">
+              Pesanan
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('dashboarddaftarharga')}}" class="nav-link text-black">
+                <img width="16" height="16" src="static/img/dashboard/icon/daftarpesanan.svg" alt="">
+                Daftar Produk
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('dashboardanalisis')}}" class="nav-link text-black">
+                <img width="16" height="16" src="static/img/dashboard/icon/analisis.svg" alt="">
+                Analisis
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('dashboardkeuangan')}}" class="nav-link text-black">
+              <img width="16" height="16" src="/static/img/dashboard/icon/totalpendapatan.svg" alt="">
+              Keuangan
+            </a>
+          </li>
+          <li >
+            <a href="{{url_for('dashboardulasan')}}" class="nav-link text-black">
+              <img width="16" height="16" src="/static/img/dashboard/icon/totalpenilaian.svg" alt="">
+              Ulasan
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('dashboardcuaca')}}" class="nav-link text-black">
+              <img width="16" height="16" src="/static/img/dashboard/icon/cuaca.svg" alt="">
+              Cuaca
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('dashboardprogram')}}" class="nav-link text-black">
+              <img width="16" height="16" src="/static/img/dashboard/icon/program.svg" alt="">
+              Program
+            </a>
+          </li>
+          <hr>
+          <li>
+            <a href="{{url_for('profil')}}" class="nav-link text-black">
+              <img width="16" height="16" src="/static/img/dashboard/icon/beralih.svg" alt="">
+              Beralih Ke Akun Pendaki
+            </a>
+          </li>
+          <div class="buttonlogout">
+            <a href="{{url_for('logout')}}"><button type="submit" id="logout">Keluar Akun</button></a>
+        </div>
+        </ul>
+      </div>
+      <div class="content py-4 px-5" style="background-color: aliceblue; width:1px ;"> 
+        <div class="header d-flex justify-content-between align-items-center mb-4">
+            <h3>Dashboard</h3>
+            <div class="profil">
+                <a href="{{url_for('dashboardprofil')}}"><img src="/static/uploads/profil/{{gambarprofil}}" alt=""></a>
+                <h6>{{nama}}</h6>
+            </div>
+        </div>
+        <div class="backgroundjasa" style="position: relative;">
+          <img src="/static/img/dashboard/1.png" alt="" style="background-size: cover; width: 1152px; height: 200px; object-fit: cover;filter: brightness(0.8); ">
+          <div class="" style="position: absolute; top: 38%; left: 5%;">
+            <h3 style="color: #fff;">Dapatkan pengalaman pendakian gunung <br> yang tak terlupakan bersama kami.</h3>
+          </div>
+        </div>
+        <div class="info mb-4 mt-3 d-flex justify-content-between">
+          <div class="totalpesanan p-3"id="fieldinfo">
+            <h6 style="color: #3f3f3f; margin-bottom: 40px;">Total Pesanan</h6>  
+            <div class="total d-flex align-items-center justify-content-between">
+              <h3>{{totalpesanan}}</h3>
+              <img width="30" height="30" src="static/img/dashboard/icon/totalpesanan.svg" alt="">
+            </div>
+          </div>
+          <div class="totalpesanan p-3"id="fieldinfo">
+            <h6 style="color: #3f3f3f; margin-bottom: 40px;">Total Penilaian</h6>  
+            <div class="total d-flex align-items-center justify-content-between">
+              <h3>{{totalpenilaian}}</h3>
+              <img width="30" height="30" src="static/img/dashboard/icon/totalpenilaian.svg" alt="">
+            </div>
+          </div>
+          <div class="totalpesanan p-3"id="fieldinfo">
+            <h6 style="color: #3f3f3f; margin-bottom: 40px;">Total Pesanan Dibatalkan</h6>  
+            <div class="total d-flex align-items-center justify-content-between">
+              <h3>{{totalbatal}}</h3>
+              <img width="30" height="30" src="static/img/dashboard/icon/totalbatal.svg" alt="">
+            </div>
+          </div>
+          <div class="totalpesanan p-3"id="fieldinfo">
+            <h6 style="color: #3f3f3f; margin-bottom: 40px;">Total Pendapatan</h6>  
+            <div class="total d-flex align-items-center justify-content-between">
+              <h6>Rp.{{totalpendapatan}}</h6>
+              <img width="30" height="30" src="static/img/dashboard/icon/totalpendapatan.svg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="pesanan p-3">
+            <h5>Pesanan</h5>
+            <div class="statuspesanan d-flex">
+                <h6 class="mx-2" style="cursor: pointer; color: black; transform: scale(1.1); text-decoration: underline; transition: 0.3s ease-in-out;" id="diterima" onclick="informasi('diterima')">Diterima</h6>
+                <h6 class="mx-2" style="color: #6f6f6f; cursor: pointer; transition: 0.3s ease-in-out;" id="dibatalkan" onclick="informasi('dibatalkan')">Dibatalkan</h6>
+            </div>
+        </div>
+        <div class="listpesanan">
+          <div class="" id="pesanditerima" style="display: flex;">
+            {% for pesanan in pesanan_list %}
+            <div class="ringkasanpesanan p-3 m-3">
+              <div class="headerringkasan d-flex justify-content-between">
+                <h6 style="color: #6f6f6f; font-size: 14px; ">ID PESANAN -{{pesanan._id}} </h6>
+                <h6 style="font-size: 14px;">Metode Pembayaran - {{pesanan.metodepembayaran}} </h6>
+              </div>
+              <div class="namapesanan d-flex align-items-center my-3">
+                <img class="me-3" src="/static/img/pesanan/order.png" alt="">
+                <h6 style="text-transform: capitalize; font-size: 18px;">{{pesanan.namaproduk}}</h6>
+              </div>
+              <div class="deskripsipesan d-flex justify-content-between">
+                <div class="deskripsi">
+                  <h6 style="text-transform: capitalize;">harga pesanan - rp {{pesanan.totalharga}}</h6>
+                  <h6 style="text-transform: uppercase; color:#6f6f6f; font-size: 14px; font-weight: lighter;">tanggal pesan : {{pesanan.waktupesan}} </h6>
+                </div>
+                  <h6 id="statuspesanan">{{pesanan.statuspesanan}}</h6>
+                </div>
+              </div>
+              {% endfor%}
+            </div>
+            <div class="d-none" id="pesanbatal" style="display: flex;">
+              {% for pesanan in pesananbatal_list %}
+                <div class="ringkasanpesanan p-3 m-3">
+                  <div class="headerringkasan d-flex justify-content-between">
+                    <h6 style="color: #6f6f6f; font-size: 14px; ">ID PESANAN -{{pesanan._id}} </h6>
+                    <h6 style="font-size: 14px;">Metode Pembayaran - {{pesanan.metodepembayaran}} </h6>
+                  </div>
+                  <div class="namapesanan d-flex align-items-center my-3">
+                    <img class="me-3" src="/static/img/pesanan/order.png" alt="">
+                    <h6 style="text-transform: capitalize; font-size: 18px;">{{pesanan.namaproduk}}</h6>
+                  </div>
+                  <div class="deskripsipesan d-flex justify-content-between">
+                    <div class="deskripsi">
+                      <h6 style="text-transform: capitalize;">harga pesanan - rp {{pesanan.totalharga}}</h6>
+                      <h6 style="text-transform: uppercase; color:#6f6f6f; font-size: 14px; font-weight: lighter;">tanggal pesan : {{pesanan.waktupesan}} </h6>
+                        </div>
+                        <h6 id="statuspesanan" style="background-color: #6f6f6f;">{{pesanan.statuspesanan}}</h6>
+                      </div>
+                    </div>
+                {% endfor%}
+            </div>
+        </div>
+      </div>
+</main>
+</body>
+</html>
+
+<script>
+  function informasi(target) {
+    var informasipaket = document.getElementById('pesanditerima');
+    var informasigunung = document.getElementById('pesanbatal');
+    var navbarpaket = document.getElementById('diterima');
+    var navbargunung = document.getElementById('dibatalkan');
+
+    if (target === 'diterima') {
+        informasipaket.classList.remove('d-none');
+        informasigunung.classList.add('d-none');
+        navbarpaket.style.color = 'black';
+        navbargunung.style.color = '#6f6f6f';
+        navbarpaket.style.transform = 'scale(1.1)';
+        navbargunung.style.transform = '';
+        navbarpaket.style.textDecoration = 'underline';
+        navbargunung.style.textDecoration = '';
+    } else if (target === 'dibatalkan') {
+        informasigunung.classList.remove('d-none');
+        informasipaket.classList.add('d-none');
+        navbargunung.style.color = 'black';
+        navbarpaket.style.color = '#6f6f6f';
+        navbargunung.style.transform = 'scale(1.1)';
+        navbarpaket.style.transform = '';
+        navbargunung.style.textDecoration = 'underline';
+        navbarpaket.style.textDecoration = '';
+    }
+}
+</script>
